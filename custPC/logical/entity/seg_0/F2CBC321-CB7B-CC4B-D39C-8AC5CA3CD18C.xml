@@ -1,0 +1,85 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="F2CBC321-CB7B-CC4B-D39C-8AC5CA3CD18C" name="SupplierDeliveries">
+<createdBy>willi</createdBy>
+<createdTime>2023-10-21 19:56:12 UTC</createdTime>
+<ownerDesignName>custPC</ownerDesignName>
+<engineerTo>
+<item key="7D845474-497B-738E-C89E-81029AE77408" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="supplierId" id="635A83B0-08BD-AC36-EEA0-32F856879BEC">
+<createdBy>willi</createdBy>
+<createdTime>2023-10-21 19:56:36 UTC</createdTime>
+<ownerDesignName>custPC</ownerDesignName>
+<engineerTo>
+<item key="7D845474-497B-738E-C89E-81029AE77408" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="supplierAddress" id="8F89283C-F232-4465-4FE4-7B393BBF8B05">
+<createdBy>willi</createdBy>
+<createdTime>2023-10-21 19:56:52 UTC</createdTime>
+<ownerDesignName>custPC</ownerDesignName>
+<engineerTo>
+<item key="7D845474-497B-738E-C89E-81029AE77408" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="supplierPhone" id="50930F0C-3553-870E-F097-C88BE03E484D">
+<createdBy>willi</createdBy>
+<createdTime>2023-10-21 19:59:04 UTC</createdTime>
+<ownerDesignName>custPC</ownerDesignName>
+<engineerTo>
+<item key="7D845474-497B-738E-C89E-81029AE77408" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="stockId" id="66C2463D-429F-3BBA-5832-6E13BBD6BA0D">
+<createdBy>willi</createdBy>
+<createdTime>2023-10-21 20:00:34 UTC</createdTime>
+<generatorID>F882C6AD-9330-C181-35FB-619491075FC6</generatorID>
+<ownerDesignName>custPC</ownerDesignName>
+<engineerTo>
+<item key="7D845474-497B-738E-C89E-81029AE77408" value="true"/>
+</engineerTo>
+<referedAttribute>6058A33B-AE0A-FB21-1C5B-BCCB3BD7C005</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="007C6572-A758-78E6-8D98-EDB09DEE271E" name="SupplierDeliveries PK">
+<createdBy>willi</createdBy>
+<createdTime>2023-10-21 19:56:51 UTC</createdTime>
+<ownerDesignName>custPC</ownerDesignName>
+<engineerTo>
+<item key="7D845474-497B-738E-C89E-81029AE77408" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>635A83B0-08BD-AC36-EEA0-32F856879BEC</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

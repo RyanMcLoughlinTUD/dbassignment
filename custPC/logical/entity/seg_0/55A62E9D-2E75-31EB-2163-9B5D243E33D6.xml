@@ -1,0 +1,81 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="55A62E9D-2E75-31EB-2163-9B5D243E33D6" name="Stock">
+<createdBy>willi</createdBy>
+<createdTime>2023-10-21 19:52:26 UTC</createdTime>
+<ownerDesignName>custPC</ownerDesignName>
+<engineerTo>
+<item key="7D845474-497B-738E-C89E-81029AE77408" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="stockType" id="B74FE94F-7D35-06F0-B1DD-0568456E1A79">
+<createdBy>willi</createdBy>
+<createdTime>2023-10-21 19:52:46 UTC</createdTime>
+<ownerDesignName>custPC</ownerDesignName>
+<engineerTo>
+<item key="7D845474-497B-738E-C89E-81029AE77408" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="stockId" id="6058A33B-AE0A-FB21-1C5B-BCCB3BD7C005">
+<createdBy>willi</createdBy>
+<createdTime>2023-10-21 19:53:01 UTC</createdTime>
+<ownerDesignName>custPC</ownerDesignName>
+<engineerTo>
+<item key="7D845474-497B-738E-C89E-81029AE77408" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="stockManufacturer" id="1620598C-9E34-A2CC-F0BB-3B1845EA2BAB">
+<createdBy>willi</createdBy>
+<createdTime>2023-10-21 19:53:23 UTC</createdTime>
+<ownerDesignName>custPC</ownerDesignName>
+<engineerTo>
+<item key="7D845474-497B-738E-C89E-81029AE77408" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="stockAmount" id="6F714A00-D606-445B-B07D-71472785D578">
+<createdBy>willi</createdBy>
+<createdTime>2023-10-21 19:53:50 UTC</createdTime>
+<ownerDesignName>custPC</ownerDesignName>
+<engineerTo>
+<item key="7D845474-497B-738E-C89E-81029AE77408" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="526B146B-D013-C9FC-7E88-9C97EDF7826A" name="Stock PK">
+<createdBy>willi</createdBy>
+<createdTime>2023-10-21 19:53:20 UTC</createdTime>
+<ownerDesignName>custPC</ownerDesignName>
+<engineerTo>
+<item key="7D845474-497B-738E-C89E-81029AE77408" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>6058A33B-AE0A-FB21-1C5B-BCCB3BD7C005</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
