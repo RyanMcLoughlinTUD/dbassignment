@@ -2,67 +2,41 @@
 --   at:        2023-10-21 21:08:25 IST
 --   site:      Oracle Database 11g
 --   type:      Oracle Database 11g
+--   edited:    Paul 
+--   at:        2023-10-23 18:46:32 IST
 
-
-
--- predefined type, no DDL - MDSYS.SDO_GEOMETRY
-
--- predefined type, no DDL - XMLTYPE
-
+--custpc table
 CREATE TABLE custpc (
-    custname       VARCHAR2(255) NOT NULL,
-    custid         INTEGER NOT NULL,
+    custname       varchar(255) NOT NULL,
+    custid         serial primary key,
     completestatus CHAR(1) NOT NULL,
-    custaddress    VARCHAR2(255) NOT NULL,
+    custaddress    varchar(255) NOT NULL,
     orderdate      DATE NOT NULL
 );
 
-ALTER TABLE custpc ADD CONSTRAINT custpc_pk PRIMARY KEY ( custid );
 
-CREATE TABLE pcspecs (
-    custpc_custid INTEGER NOT NULL,
-    stock_stockid INTEGER NOT NULL,
-    noused        INTEGER NOT NULL
-);
-
-ALTER TABLE pcspecs ADD CONSTRAINT pcspecs_pk PRIMARY KEY ( custpc_custid,
-                                                            stock_stockid );
-
+--stock table
 CREATE TABLE stock (
-    stocktype         VARCHAR2 
---  ERROR: VARCHAR2 size not specified 
-     NOT NULL,
-    stockid           INTEGER NOT NULL,
-    stockmanufacturer VARCHAR2 
---  ERROR: VARCHAR2 size not specified 
-     NOT NULL,
-    stockamount       INTEGER NOT NULL
+    stocktype         VARCHAR(255) NOT NULL,
+    stockid           serial primary key,
+    stockmanufacturer VARCHAR(255) NOT NULL,
+    stockamount       int NOT NULL
 );
 
-ALTER TABLE stock ADD CONSTRAINT stock_pk PRIMARY KEY ( stockid );
-
+--relies on stock
 CREATE TABLE supplierdeliveries (
-    supplierid      INTEGER NOT NULL,
-    supplieraddress VARCHAR2(255) NOT NULL,
-    supplierphone   VARCHAR2(10) NOT NULL,
-    stock_stockid   INTEGER NOT NULL
+    supplierid      serial primary key,
+    supplieraddress varchar(255) NOT NULL,
+    supplierphone   varchar(10) NOT NULL,
+    stock_stockid   int NOT NULL REFERENCES stock( stockid )
 );
 
-ALTER TABLE supplierdeliveries ADD CONSTRAINT supplierdeliveries_pk PRIMARY KEY ( supplierid );
-
-ALTER TABLE pcspecs
-    ADD CONSTRAINT pcspecs_custpc_fk FOREIGN KEY ( custpc_custid )
-        REFERENCES custpc ( custid );
-
-ALTER TABLE pcspecs
-    ADD CONSTRAINT pcspecs_stock_fk FOREIGN KEY ( stock_stockid )
-        REFERENCES stock ( stockid );
-
-ALTER TABLE supplierdeliveries
-    ADD CONSTRAINT supplierdeliveries_stock_fk FOREIGN KEY ( stock_stockid )
-        REFERENCES stock ( stockid );
-
-
+--relies on custpc and stock
+CREATE TABLE pcspecs (
+    custpc_custid int NOT NULL REFERENCES custpc( custid ),
+    stock_stockid int NOT NULL REFERENCES stock( stockid ),
+    noused        int NOT NULL
+);
 
 -- Oracle SQL Developer Data Modeler Summary Report: 
 -- 
