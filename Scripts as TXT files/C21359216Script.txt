@@ -1,0 +1,6 @@
+select * from "Cust857B".stock;
+select * from "Cust857B".custpc;
+
+insert into "Cust857B".stock (stocktype, stockmanufacturer, stockamount) values('gorp', 'ryanMcloughlin', 10);
+insert into "Cust857B".custpc (custname, completestatus, custaddress, orderdate) values('Paulish', 'Y', '171 The Vale', '23/10/2023');
+insert into "Cust857B".supplierdeliveries (supplieraddress, supplierphone, stock_stockid) values('202 gorp ave', 0874435555, 2);
