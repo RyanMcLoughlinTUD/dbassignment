@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="2549057C-3820-20ED-BF14-BE10D6AD9BF3" containerWithKeyObject="FFADA14F-47BA-9721-9512-B2406E3C6954" localFKIndex="8C11B723-128F-20CC-677F-E777B134C79D" name="PartsDefect_PartsReturn_FK">
+<createdBy>willi</createdBy>
+<createdTime>2023-10-27 13:59:47 UTC</createdTime>
+<generatorID>C11C50CE-70F7-F078-EFED-43F2AF966696</generatorID>
+<ownerDesignName>custpc2</ownerDesignName>
+<referredTableLongName>PartsReturn</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>0AD951CD-1A30-3E76-82C7-0F48EBD77183</referredTableID>
+<keyObject>CB62400E-F17F-8569-3302-B32D0340FCAE</keyObject>
+<referredKeyID>CB62400E-F17F-8569-3302-B32D0340FCAE</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>PartsReturn_Id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

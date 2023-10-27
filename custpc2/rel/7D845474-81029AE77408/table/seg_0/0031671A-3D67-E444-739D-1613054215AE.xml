@@ -1,0 +1,96 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="0031671A-3D67-E444-739D-1613054215AE" name="Stock">
+<createdBy>willi</createdBy>
+<createdTime>2023-10-27 13:59:47 UTC</createdTime>
+<generatorID>55A62E9D-2E75-31EB-2163-9B5D243E33D6</generatorID>
+<ownerDesignName>custpc2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="stockType" id="D3AAC2D2-1F5D-E10A-579B-85D604AB75C5">
+<createdBy>willi</createdBy>
+<createdTime>2023-10-27 13:59:47 UTC</createdTime>
+<generatorID>B74FE94F-7D35-06F0-B1DD-0568456E1A79</generatorID>
+<ownerDesignName>custpc2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="stockId" id="D70383FE-8DE3-BE6A-77B5-FDFC0A33F12F">
+<createdBy>willi</createdBy>
+<createdTime>2023-10-27 13:59:47 UTC</createdTime>
+<generatorID>6058A33B-AE0A-FB21-1C5B-BCCB3BD7C005</generatorID>
+<ownerDesignName>custpc2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="stockManufacturer" id="610C05D3-8D3E-71CD-8C06-D6E610926E52">
+<createdBy>willi</createdBy>
+<createdTime>2023-10-27 13:59:47 UTC</createdTime>
+<generatorID>1620598C-9E34-A2CC-F0BB-3B1845EA2BAB</generatorID>
+<ownerDesignName>custpc2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="stockAmount" id="0FB8D625-A0B6-CEC5-344B-69D596157C90">
+<createdBy>willi</createdBy>
+<createdTime>2023-10-27 13:59:47 UTC</createdTime>
+<generatorID>6F714A00-D606-445B-B07D-71472785D578</generatorID>
+<ownerDesignName>custpc2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="supplierId" id="43667088-4409-C210-ED8C-4442C2B83BAE">
+<createdBy>willi</createdBy>
+<createdTime>2023-10-27 13:59:47 UTC</createdTime>
+<generatorID>FC6EACBF-50BF-EFA9-076A-016049C26323</generatorID>
+<ownerDesignName>custpc2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="FAA0FBA2-0D81-BE2B-CA30-B2E5319F2151" referredColumn="9151FA2C-B9F8-61B5-E230-3E150FA9542F"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="093759C3-0D61-9A0A-89F0-E412B6371B80" name="Stock_PK">
+<createdBy>willi</createdBy>
+<createdTime>2023-10-27 13:59:47 UTC</createdTime>
+<generatorID>526B146B-D013-C9FC-7E88-9C97EDF7826A</generatorID>
+<ownerDesignName>custpc2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D70383FE-8DE3-BE6A-77B5-FDFC0A33F12F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F19F7D52-7514-809A-BC0A-860621F96100" name="Stock_SupplierDeliveries_FK">
+<createdBy>willi</createdBy>
+<createdTime>2023-10-27 13:59:47 UTC</createdTime>
+<generatorID>51228444-C069-472D-3FCC-D2C7CF4B1BD7</generatorID>
+<ownerDesignName>custpc2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="43667088-4409-C210-ED8C-4442C2B83BAE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

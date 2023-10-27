@@ -1,0 +1,85 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="FE683F64-8535-17C6-1FB0-7562EA0A702E" name="PersonDetails">
+<createdBy>willi</createdBy>
+<createdTime>2023-10-27 13:59:47 UTC</createdTime>
+<generatorID>05C66315-6597-2D7A-B8F4-D663D24CADA8</generatorID>
+<ownerDesignName>custpc2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="personId" id="9540F777-A258-F23C-A1BB-8CE29830C52C">
+<createdBy>willi</createdBy>
+<createdTime>2023-10-27 13:59:47 UTC</createdTime>
+<generatorID>C06F94BD-53D0-1E57-A51B-3A09E87B3C8A</generatorID>
+<ownerDesignName>custpc2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="personName" id="9A38C942-47C6-720D-1E89-46EED00AD903">
+<createdBy>willi</createdBy>
+<createdTime>2023-10-27 13:59:47 UTC</createdTime>
+<generatorID>A1DFB5FB-99EE-8131-3632-E4F646864BBC</generatorID>
+<ownerDesignName>custpc2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="personAddress" id="08BA315E-26D5-B96A-D67B-9FFEAD01F328">
+<createdBy>willi</createdBy>
+<createdTime>2023-10-27 13:59:47 UTC</createdTime>
+<generatorID>B3D2F281-98E4-0C19-E464-96E7C2E99F5A</generatorID>
+<ownerDesignName>custpc2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="personEmail" id="A0F1F1BC-56A7-DCD7-A749-8BE0365D9661">
+<createdBy>willi</createdBy>
+<createdTime>2023-10-27 13:59:47 UTC</createdTime>
+<generatorID>9D829D96-16D5-684F-4D1B-3FE3090A18CC</generatorID>
+<ownerDesignName>custpc2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="personPhone" id="22BD76EC-FA4A-3825-0944-7FEE660E06C9">
+<createdBy>willi</createdBy>
+<createdTime>2023-10-27 13:59:47 UTC</createdTime>
+<commentInRDBMS><![CDATA[	]]></commentInRDBMS>
+<generatorID>E31FDC89-ECE3-772D-E11F-EB7A23055D5C</generatorID>
+<ownerDesignName>custpc2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="28C03738-66AB-EC79-F3D2-A9051B5C11FD" name="PersonDetails_PK">
+<createdBy>willi</createdBy>
+<createdTime>2023-10-27 13:59:47 UTC</createdTime>
+<generatorID>1F67771F-C411-1BB1-E2E9-D5A24ABE2684</generatorID>
+<ownerDesignName>custpc2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9540F777-A258-F23C-A1BB-8CE29830C52C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
