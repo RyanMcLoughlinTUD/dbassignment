@@ -1,3 +1,15 @@
+--SUPPLIERS
+-- Inserting fake data into the supplierdeliveries table
+INSERT INTO supplierdeliveries (supplieraddress, supplierphone) VALUES ('123 Main Street, Fakeville', '555-123-4567');
+INSERT INTO supplierdeliveries (supplieraddress, supplierphone) VALUES ('456 Elm Street, Faketown', '555-987-6543');
+INSERT INTO supplierdeliveries (supplieraddress, supplierphone) VALUES ('789 Oak Avenue, Imaginary City', '555-456-7890');
+INSERT INTO supplierdeliveries (supplieraddress, supplierphone) VALUES ('321 Pine Road, Dreamland', '555-876-5432');
+INSERT INTO supplierdeliveries (supplieraddress, supplierphone) VALUES ('555 Cedar Lane, Fictionville', '555-234-5678');
+INSERT INTO supplierdeliveries (supplieraddress, supplierphone) VALUES ('777 Willow Drive, Makebelieve Town', '555-765-4321');
+INSERT INTO supplierdeliveries (supplieraddress, supplierphone) VALUES ('999 Birch Court, Fantasy City', '555-345-6789');
+INSERT INTO supplierdeliveries (supplieraddress, supplierphone) VALUES ('1234 Redwood Street, Wonderland', '555-654-3210');
+INSERT INTO supplierdeliveries (supplieraddress, supplierphone) VALUES ('5678 Sequoia Avenue, Enchanted Forest', '555-432-1098');
+
 --STOCK
 
 --Processors
@@ -38,35 +50,23 @@ insert into stock(stocktype, stockmanufacturer, stockamount , supplierid) values
 --EXTRA FANS
 insert into stock(stocktype, stockmanufacturer, stockamount , supplierid) values ('Noctua fans 2 pack','NOCTUA', 10,9);
 
---SUPPLIERS
--- Inserting fake data into the supplierdeliveries table
-INSERT INTO supplierdeliveries (supplieraddress, supplierphone) VALUES ('123 Main Street, Fakeville', '555-123-4567');
-INSERT INTO supplierdeliveries (supplieraddress, supplierphone) VALUES ('456 Elm Street, Faketown', '555-987-6543');
-INSERT INTO supplierdeliveries (supplieraddress, supplierphone) VALUES ('789 Oak Avenue, Imaginary City', '555-456-7890');
-INSERT INTO supplierdeliveries (supplieraddress, supplierphone) VALUES ('321 Pine Road, Dreamland', '555-876-5432');
-INSERT INTO supplierdeliveries (supplieraddress, supplierphone) VALUES ('555 Cedar Lane, Fictionville', '555-234-5678');
-INSERT INTO supplierdeliveries (supplieraddress, supplierphone) VALUES ('777 Willow Drive, Makebelieve Town', '555-765-4321');
-INSERT INTO supplierdeliveries (supplieraddress, supplierphone) VALUES ('999 Birch Court, Fantasy City', '555-345-6789');
-INSERT INTO supplierdeliveries (supplieraddress, supplierphone) VALUES ('1234 Redwood Street, Wonderland', '555-654-3210');
-INSERT INTO supplierdeliveries (supplieraddress, supplierphone) VALUES ('5678 Sequoia Avenue, Enchanted Forest', '555-432-1098');
-
 --CUSTOMERS
--- Inserting fake personal details into the personaldetails table
-INSERT INTO personaldetails (personname, personaddress, personemail, personphone)VALUES ('John Doe', '123 Main Street, Anytown, USA', 'johndoe@example.com', '555-123-4567');
-INSERT INTO personaldetails (personname, personaddress, personemail, personphone)VALUES ('Jane Smith', '456 Elm Avenue, Somecity, USA', 'janesmith@example.com', '555-987-6543');
-INSERT INTO personaldetails (personname, personaddress, personemail, personphone)VALUES ('David Johnson', '789 Oak Lane, Anotherplace, USA', 'davidjohnson@example.com', '555-456-7890');
-INSERT INTO personaldetails (personname, personaddress, personemail, personphone)VALUES ('Sarah Brown', '321 Maple Street, Imaginarytown, USA', 'sarahbrown@example.com', '555-876-5432');
-INSERT INTO personaldetails (personname, personaddress, personemail, personphone)VALUES ('Michael Lee', '555 Pine Road, Dreamcity, USA', 'michaellee@example.com', '555-234-5678');
-INSERT INTO personaldetails (personname, personaddress, personemail, personphone)VALUES ('Jennifer Taylor', '777 Oak Street, Dreamland, USA', 'jennifertaylor@example.com', '555-765-4321');
-INSERT INTO personaldetails (personname, personaddress, personemail, personphone)VALUES ('Robert Davis', '999 Willow Lane, Makebelieveville, USA', 'robertdavis@example.com', '555-345-6789');
-INSERT INTO personaldetails (personname, personaddress, personemail, personphone)VALUES ('Lisa White', '1234 Birch Road, Fantasyville, USA', 'lisawhite@example.com', '555-654-3210');
-INSERT INTO personaldetails (personname, personaddress, personemail, personphone)VALUES ('James Harris', '5678 Cedar Avenue, Wonderland, USA', 'jamesharris@example.com', '555-432-1098');
-INSERT INTO personaldetails (personname, personaddress, personemail, personphone)VALUES ('Karen Allen', '123 Maple Lane, Enchanted Forest, USA', 'karenallen@example.com', '555-987-6543');
-INSERT INTO personaldetails (personname, personaddress, personemail, personphone)VALUES ('William Turner', '456 Elm Road, Mythical City, USA', 'williamturner@example.com', '555-456-7890');
-INSERT INTO personaldetails (personname, personaddress, personemail, personphone)VALUES ('Amanda Parker', '789 Oak Avenue, Fairyland, USA', 'amandaparker@example.com', '555-234-5678');
-INSERT INTO personaldetails (personname, personaddress, personemail, personphone)VALUES ('Daniel Hall', '321 Pine Lane, Magic Town, USA', 'danielhall@example.com', '555-765-4321');
-INSERT INTO personaldetails (personname, personaddress, personemail, personphone)VALUES ('Elizabeth Wilson', '555 Willow Street, Wonderland, USA', 'elizabethwilson@example.com', '555-345-6789');
-INSERT INTO personaldetails (personname, personaddress, personemail, personphone)VALUES ('Christopher Clark', '777 Birch Road, Whimsicalville, USA', 'christopherclark@example.com', '555-654-3210');
+-- Inserting fake personal details into the persondetails table
+INSERT INTO persondetails (personname, personaddress, personemail, personphone) VALUES ('John Doe', '123 Main Street, Anytown, USA', 'johndoe@example.com', '555-123-4567');
+INSERT INTO persondetails (personname, personaddress, personemail, personphone) VALUES ('Jane Smith', '456 Elm Avenue, Somecity, USA', 'janesmith@example.com', '555-987-6543');
+INSERT INTO persondetails (personname, personaddress, personemail, personphone) VALUES ('David Johnson', '789 Oak Lane, Anotherplace, USA', 'davidjohnson@example.com', '555-456-7890');
+INSERT INTO persondetails (personname, personaddress, personemail, personphone) VALUES ('Sarah Brown', '321 Maple Street, Imaginarytown, USA', 'sarahbrown@example.com', '555-876-5432');
+INSERT INTO persondetails (personname, personaddress, personemail, personphone) VALUES ('Michael Lee', '555 Pine Road, Dreamcity, USA', 'michaellee@example.com', '555-234-5678');
+INSERT INTO persondetails (personname, personaddress, personemail, personphone) VALUES ('Jennifer Taylor', '777 Oak Street, Dreamland, USA', 'jennifertaylor@example.com', '555-765-4321');
+INSERT INTO persondetails (personname, personaddress, personemail, personphone) VALUES ('Robert Davis', '999 Willow Lane, Makebelieveville, USA', 'robertdavis@example.com', '555-345-6789');
+INSERT INTO persondetails (personname, personaddress, personemail, personphone) VALUES ('Lisa White', '1234 Birch Road, Fantasyville, USA', 'lisawhite@example.com', '555-654-3210');
+INSERT INTO persondetails (personname, personaddress, personemail, personphone) VALUES ('James Harris', '5678 Cedar Avenue, Wonderland, USA', 'jamesharris@example.com', '555-432-1098');
+INSERT INTO persondetails (personname, personaddress, personemail, personphone) VALUES ('Karen Allen', '123 Maple Lane, Enchanted Forest, USA', 'karenallen@example.com', '555-987-6543');
+INSERT INTO persondetails (personname, personaddress, personemail, personphone) VALUES ('William Turner', '456 Elm Road, Mythical City, USA', 'williamturner@example.com', '555-456-7890');
+INSERT INTO persondetails (personname, personaddress, personemail, personphone) VALUES ('Amanda Parker', '789 Oak Avenue, Fairyland, USA', 'amandaparker@example.com', '555-234-5678');
+INSERT INTO persondetails (personname, personaddress, personemail, personphone) VALUES ('Daniel Hall', '321 Pine Lane, Magic Town, USA', 'danielhall@example.com', '555-765-4321');
+INSERT INTO persondetails (personname, personaddress, personemail, personphone) VALUES ('Elizabeth Wilson', '555 Willow Street, Wonderland, USA', 'elizabethwilson@example.com', '555-345-6789');
+INSERT INTO persondetails (personname, personaddress, personemail, personphone) VALUES ('Christopher Clark', '777 Birch Road, Whimsicalville, USA', 'christopherclark@example.com', '555-654-3210');
 
 --populating build table
 -- PC 1 (Customer 1)
@@ -146,4 +146,7 @@ WHERE stocktype = 'Ryzen 5 5600X'
    OR stocktype = 'NZXT Case White'
    OR stocktype = 'NH15 Standard';
 
+select custid, stocktype from pcspecs
+join stock using(stockid)
+where custid = 1; 
 

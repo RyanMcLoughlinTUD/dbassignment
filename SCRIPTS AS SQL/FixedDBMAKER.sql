@@ -3,20 +3,20 @@
 --   site:      Oracle Database 11g
 --   type:      Oracle Database 11g
 
-drop table persondetails;
-drop table custpc;
-drop table partsreturn;
-drop table supplierdeliveries;
-drop table stock;
 drop table partsdefect;
+drop table partsreturn;
 drop table pcspecs;
+drop table stock;
+drop table custpc;
+drop table persondetails;
+drop table supplierdeliveries;
 
 CREATE TABLE persondetails (
     personid      SERIAL primary key,
     personname    VARCHAR(100) NOT NULL,
     personaddress VARCHAR(255) NOT NULL,
     personemail   VARCHAR(100) NOT NULL,
-    personphone   INTEGER NOT NULL
+    personphone   VARCHAR(20) NOT NULL
 );
 
 CREATE TABLE custpc (
@@ -31,7 +31,7 @@ CREATE TABLE custpc (
 CREATE TABLE supplierdeliveries (
     supplierid      SERIAL primary key,
     supplieraddress VARCHAR(255) NOT NULL,
-    supplierphone   VARCHAR(10) NOT NULL
+    supplierphone   VARCHAR(20) NOT NULL
 );
 
 CREATE TABLE partsreturn (
@@ -41,8 +41,6 @@ CREATE TABLE partsreturn (
     supplierid      INTEGER references supplierdeliveries(supplierid),
     partsreturn_id  SERIAL NOT NULL
 );
-
-
 
 CREATE TABLE stock (
     stockid           SERIAL primary key,
@@ -60,7 +58,7 @@ CREATE TABLE partsdefect (
 );
 
 CREATE TABLE pcspecs (
-    custid SERIAL primary key,
+    custid integer references persondetails(personid),
     stockid integer references stock(stockid),
     numused  INTEGER NOT NULL
 );
