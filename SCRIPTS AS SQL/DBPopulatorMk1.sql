@@ -1,14 +1,14 @@
 --SUPPLIERS
--- Inserting fake data into the supplierdeliveries table
-INSERT INTO supplierdeliveries (supplieraddress, supplierphone) VALUES ('123 Main Street, Fakeville', '555-123-4567');
-INSERT INTO supplierdeliveries (supplieraddress, supplierphone) VALUES ('456 Elm Street, Faketown', '555-987-6543');
-INSERT INTO supplierdeliveries (supplieraddress, supplierphone) VALUES ('789 Oak Avenue, Imaginary City', '555-456-7890');
-INSERT INTO supplierdeliveries (supplieraddress, supplierphone) VALUES ('321 Pine Road, Dreamland', '555-876-5432');
-INSERT INTO supplierdeliveries (supplieraddress, supplierphone) VALUES ('555 Cedar Lane, Fictionville', '555-234-5678');
-INSERT INTO supplierdeliveries (supplieraddress, supplierphone) VALUES ('777 Willow Drive, Makebelieve Town', '555-765-4321');
-INSERT INTO supplierdeliveries (supplieraddress, supplierphone) VALUES ('999 Birch Court, Fantasy City', '555-345-6789');
-INSERT INTO supplierdeliveries (supplieraddress, supplierphone) VALUES ('1234 Redwood Street, Wonderland', '555-654-3210');
-INSERT INTO supplierdeliveries (supplieraddress, supplierphone) VALUES ('5678 Sequoia Avenue, Enchanted Forest', '555-432-1098');
+-- Inserting fake data into the supplierdetails table
+INSERT INTO supplierdetails (suppliername, supplieraddress, supplierphone) VALUES ('Paul ETL', '123 Main Street, Fakeville', '555-123-4567');
+INSERT INTO supplierdetails (suppliername, supplieraddress, supplierphone) VALUES ('Whizaro Mutt', '456 Elm Street, Faketown', '555-987-6543');
+INSERT INTO supplierdetails (suppliername, supplieraddress, supplierphone) VALUES ('PCs R US', '789 Oak Avenue, Imaginary City', '555-456-7890');
+INSERT INTO supplierdetails (suppliername, supplieraddress, supplierphone) VALUES ('Dudleys', '321 Pine Road, Dreamland', '555-876-5432');
+INSERT INTO supplierdetails (suppliername, supplieraddress, supplierphone) VALUES ('Whazzos', '555 Cedar Lane, Fictionville', '555-234-5678');
+INSERT INTO supplierdetails (suppliername, supplieraddress, supplierphone) VALUES ('The Gorper', '777 Willow Drive, Makebelieve Town', '555-765-4321');
+INSERT INTO supplierdetails (suppliername, supplieraddress, supplierphone) VALUES ('Am. Ongus', '999 Birch Court, Fantasy City', '555-345-6789');
+INSERT INTO supplierdetails (suppliername, supplieraddress, supplierphone) VALUES ('Brickys Folly', '1234 Redwood Street, Wonderland', '555-654-3210');
+INSERT INTO supplierdetails (suppliername, supplieraddress, supplierphone) VALUES ('Invaluable Attire LTD', '5678 Sequoia Avenue, Enchanted Forest', '555-432-1098');
 
 --STOCK
 

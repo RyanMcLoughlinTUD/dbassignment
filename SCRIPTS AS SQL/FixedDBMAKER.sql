@@ -9,7 +9,7 @@ drop table pcspecs;
 drop table stock;
 drop table custpc;
 drop table persondetails;
-drop table supplierdeliveries;
+drop table supplierdetails;
 
 CREATE TABLE persondetails (
     personid      SERIAL primary key,
@@ -28,9 +28,10 @@ CREATE TABLE custpc (
     personid       INTEGER references persondetails(personid)
 );
 
-CREATE TABLE supplierdeliveries (
+CREATE TABLE supplierdetails (
     supplierid      SERIAL primary key,
-    supplieraddress VARCHAR(255) NOT NULL,
+    suppliername	VARCHAR(100) not null,
+    supplieraddress VARCHAR(255) UNIQUE NOT NULL,
     supplierphone   VARCHAR(20) NOT NULL
 );
 
@@ -38,7 +39,7 @@ CREATE TABLE partsreturn (
     stockid         SERIAL primary key,
     stocktype       VARCHAR(100) NOT NULL,
     supplieraddress VARCHAR(255) NOT NULL,
-    supplierid      INTEGER references supplierdeliveries(supplierid),
+    supplierid      INTEGER references supplierdetails(supplierid),
     partsreturn_id  SERIAL NOT NULL
 );
 
@@ -47,7 +48,7 @@ CREATE TABLE stock (
     stocktype         varchar(255) NOT NULL,
     stockmanufacturer varchar(255) NOT NULL,
     stockamount       INTEGER NOT NULL,
-    supplierid        SERIAL references supplierdeliveries(supplierid)
+    supplierid        SERIAL references supplierdetails(supplierid)
 );
 
 CREATE TABLE partsdefect (
