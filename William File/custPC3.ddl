@@ -3,55 +3,35 @@
 --   site:      Oracle Database 11g
 --   type:      Oracle Database 11g
 
-
-
--- predefined type, no DDL - MDSYS.SDO_GEOMETRY
-
--- predefined type, no DDL - XMLTYPE
-
 CREATE TABLE cust_buyer (
-    buyer_id      INTEGER NOT NULL,
-    buyer_name    VARCHAR2(100) NOT NULL,
-    buyer_address VARCHAR2(255) NOT NULL,
-    buyer_email   VARCHAR2(100) NOT NULL,
-    buyer_phone   INTEGER
+    buyer_id      serial primary key,
+    buyer_name    VARCHAR(100) NOT NULL,
+    buyer_address VARCHAR(255) NOT NULL,
+    buyer_email   VARCHAR(100) NOT NULL,
+    buyer_phone   varchar(20)
 );
-
-COMMENT ON COLUMN cust_buyer.buyer_phone IS
-    '	';
-
-ALTER TABLE cust_buyer ADD CONSTRAINT cust_buyer_pk PRIMARY KEY ( buyer_id );
 
 CREATE TABLE cust_components (
-    part_name         VARCHAR2 
---  ERROR: VARCHAR2 size not specified 
-     NOT NULL,
-    part_id           INTEGER NOT NULL,
-    part_manufacturer VARCHAR2 
---  ERROR: VARCHAR2 size not specified 
-     NOT NULL,
+    part_id           serial primary key,
+    part_name         VARCHAR(100) NOT NULL,
+    part_manufacturer VARCHAR(100) NOT NULL,
     part_stock        INTEGER NOT NULL
 );
-
-ALTER TABLE cust_components ADD CONSTRAINT cust_components_pk PRIMARY KEY ( part_id );
 
 CREATE TABLE cust_order (
     cust_pc_pc_id       INTEGER NOT NULL,
     cust_buyer_buyer_id INTEGER NOT NULL,
     order_date          DATE NOT NULL,
-    order_email         VARCHAR2(100) NOT NULL
+    order_email         VARCHAR(100) NOT NULL
 );
 
 ALTER TABLE cust_order ADD CONSTRAINT cust_order_pk PRIMARY KEY ( cust_pc_pc_id,
                                                                   cust_buyer_buyer_id );
-
 CREATE TABLE cust_pc (
-    pc_name  VARCHAR2(255) NOT NULL,
-    pc_id    INTEGER NOT NULL,
+    pc_id    serial primary key,
+    pc_name  VARCHAR(255) NOT NULL,
     pc_price INTEGER NOT NULL
 );
-
-ALTER TABLE cust_pc ADD CONSTRAINT cust_pc_pk PRIMARY KEY ( pc_id );
 
 CREATE TABLE cust_specs (
     cust_pc_pc_id           INTEGER NOT NULL,
@@ -62,17 +42,14 @@ ALTER TABLE cust_specs ADD CONSTRAINT cust_specs_pk PRIMARY KEY ( cust_pc_pc_id,
                                                                   cust_components_part_id );
 
 CREATE TABLE cust_supplierdetails (
-    supplier_id      INTEGER NOT NULL,
-    supplier_address VARCHAR2(255) NOT NULL,
-    supplier_phone   VARCHAR2(10) NOT NULL,
-    supplier_name    VARCHAR2(100) NOT NULL
+    supplier_id      serial primary key,
+    supplier_address VARCHAR(255) NOT NULL,
+    supplier_phone   VARCHAR(20) NOT NULL,
+    supplier_name    VARCHAR(100) NOT NULL
 );
 
-ALTER TABLE cust_supplierdetails ADD CONSTRAINT cust_supplierdetails_pk PRIMARY KEY ( supplier_id );
-
 CREATE TABLE cust_supplycomponents (
-    cust_components_part_id          INTEGER NOT NULL, 
---  ERROR: Column name length exceeds maximum allowed length(30) 
+    cust_components_part_id          INTEGER NOT NULL,
     cust_supplierdetails_supplier_id INTEGER NOT NULL,
     supplied_date                    DATE NOT NULL
 );
@@ -105,48 +82,3 @@ ALTER TABLE cust_supplycomponents
 ALTER TABLE cust_supplycomponents
     ADD CONSTRAINT cust_supplycomponents_cust_supplierdetails_fk FOREIGN KEY ( cust_supplierdetails_supplier_id )
         REFERENCES cust_supplierdetails ( supplier_id );
-
-
-
--- Oracle SQL Developer Data Modeler Summary Report: 
--- 
--- CREATE TABLE                             7
--- CREATE INDEX                             0
--- ALTER TABLE                             13
--- CREATE VIEW                              0
--- ALTER VIEW                               0
--- CREATE PACKAGE                           0
--- CREATE PACKAGE BODY                      0
--- CREATE PROCEDURE                         0
--- CREATE FUNCTION                          0
--- CREATE TRIGGER                           0
--- ALTER TRIGGER                            0
--- CREATE COLLECTION TYPE                   0
--- CREATE STRUCTURED TYPE                   0
--- CREATE STRUCTURED TYPE BODY              0
--- CREATE CLUSTER                           0
--- CREATE CONTEXT                           0
--- CREATE DATABASE                          0
--- CREATE DIMENSION                         0
--- CREATE DIRECTORY                         0
--- CREATE DISK GROUP                        0
--- CREATE ROLE                              0
--- CREATE ROLLBACK SEGMENT                  0
--- CREATE SEQUENCE                          0
--- CREATE MATERIALIZED VIEW                 0
--- CREATE MATERIALIZED VIEW LOG             0
--- CREATE SYNONYM                           0
--- CREATE TABLESPACE                        0
--- CREATE USER                              0
--- 
--- DROP TABLESPACE                          0
--- DROP DATABASE                            0
--- 
--- REDACTION POLICY                         0
--- 
--- ORDS DROP SCHEMA                         0
--- ORDS ENABLE SCHEMA                       0
--- ORDS ENABLE OBJECT                       0
--- 
--- ERRORS                                   5
--- WARNINGS                                 0
