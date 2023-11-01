@@ -1,2 +1,0 @@
-DBeaver wouldnt let me save as anything but SQL or TXT, i went with sql
-tables should populate correctly with new SQL and data filler sql, any issues let me know
