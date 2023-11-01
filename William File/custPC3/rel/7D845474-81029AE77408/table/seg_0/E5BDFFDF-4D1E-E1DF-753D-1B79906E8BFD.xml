@@ -1,0 +1,86 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E5BDFFDF-4D1E-E1DF-753D-1B79906E8BFD" name="cust_buyer">
+<createdBy>willi</createdBy>
+<createdTime>2023-11-01 13:30:52 UTC</createdTime>
+<generatorID>05C66315-6597-2D7A-B8F4-D663D24CADA8</generatorID>
+<ownerDesignName>custPC3</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="buyer_id" id="054A571B-065E-906C-E6B3-5C7B07BBCFA5">
+<createdBy>willi</createdBy>
+<createdTime>2023-11-01 13:30:52 UTC</createdTime>
+<generatorID>C06F94BD-53D0-1E57-A51B-3A09E87B3C8A</generatorID>
+<ownerDesignName>custPC3</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="buyer_name" id="5032BE6E-C2E2-8099-7429-A56DED1789EE">
+<createdBy>willi</createdBy>
+<createdTime>2023-11-01 13:30:52 UTC</createdTime>
+<generatorID>A1DFB5FB-99EE-8131-3632-E4F646864BBC</generatorID>
+<ownerDesignName>custPC3</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="buyer_address" id="3B9488C5-B27B-912C-5109-22AFA77AE54F">
+<createdBy>willi</createdBy>
+<createdTime>2023-11-01 13:30:52 UTC</createdTime>
+<generatorID>B3D2F281-98E4-0C19-E464-96E7C2E99F5A</generatorID>
+<ownerDesignName>custPC3</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="buyer_email" id="3E00644C-BB1A-E563-FBE1-3474FDDE4F86">
+<createdBy>willi</createdBy>
+<createdTime>2023-11-01 13:30:52 UTC</createdTime>
+<generatorID>9D829D96-16D5-684F-4D1B-3FE3090A18CC</generatorID>
+<ownerDesignName>custPC3</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="buyer_phone" id="E8ED2978-EE99-C5CF-3A06-1E3B08B030CA">
+<createdBy>willi</createdBy>
+<createdTime>2023-11-01 13:30:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[	]]></commentInRDBMS>
+<generatorID>E31FDC89-ECE3-772D-E11F-EB7A23055D5C</generatorID>
+<ownerDesignName>custPC3</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6F11E0DC-A881-76FE-3921-5E3B4535692F" name="cust_buyer_PK">
+<createdBy>willi</createdBy>
+<createdTime>2023-11-01 13:30:52 UTC</createdTime>
+<generatorID>1F67771F-C411-1BB1-E2E9-D5A24ABE2684</generatorID>
+<ownerDesignName>custPC3</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="054A571B-065E-906C-E6B3-5C7B07BBCFA5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

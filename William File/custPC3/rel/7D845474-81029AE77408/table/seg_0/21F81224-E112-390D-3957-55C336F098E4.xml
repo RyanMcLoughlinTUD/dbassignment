@@ -1,0 +1,102 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="21F81224-E112-390D-3957-55C336F098E4" name="cust_order">
+<createdBy>willi</createdBy>
+<createdTime>2023-11-01 13:30:52 UTC</createdTime>
+<ownerDesignName>custPC3</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="cust_pc_pc_id" id="6268F1FD-C0EC-0A26-F5C0-D8EE0FB4EB8D">
+<createdBy>willi</createdBy>
+<createdTime>2023-11-01 13:30:52 UTC</createdTime>
+<ownerDesignName>custPC3</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="68C47D61-0D00-35A8-F435-E813711B8870" referredColumn="1B067E02-E477-29C6-82ED-7501597CFF9E"/>
+</associations>
+</Column>
+<Column name="cust_buyer_buyer_id" id="27BB923F-0F35-1CFF-C6A6-1995B514E6EE">
+<createdBy>willi</createdBy>
+<createdTime>2023-11-01 13:30:52 UTC</createdTime>
+<ownerDesignName>custPC3</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="8196D7B6-7EEF-148D-8947-8CDA628C985A" referredColumn="054A571B-065E-906C-E6B3-5C7B07BBCFA5"/>
+</associations>
+</Column>
+<Column name="order_date" id="FED41D0A-41CD-6D46-E265-6D5EBABA9CC9">
+<createdBy>willi</createdBy>
+<createdTime>2023-11-01 13:30:52 UTC</createdTime>
+<generatorID>36A44A4A-1B98-A276-050E-EE96DAEFEE6F</generatorID>
+<ownerDesignName>custPC3</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isRelationshipColumn>true</isRelationshipColumn>
+<isDependOnFK_AsMandatory>true</isDependOnFK_AsMandatory>
+</Column>
+<Column name="order_email" id="CADF98C5-CF67-4D88-E59B-5F9DF417F7F6">
+<createdBy>willi</createdBy>
+<createdTime>2023-11-01 13:30:52 UTC</createdTime>
+<generatorID>BB680B86-44EA-8E67-C164-9B31FC328CE6</generatorID>
+<ownerDesignName>custPC3</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isRelationshipColumn>true</isRelationshipColumn>
+<isDependOnFK_AsMandatory>true</isDependOnFK_AsMandatory>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B69BD16F-DCC4-D2FB-5653-74D197291D8B" name="cust_order_PK">
+<createdBy>willi</createdBy>
+<createdTime>2023-11-01 13:30:52 UTC</createdTime>
+<ownerDesignName>custPC3</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6268F1FD-C0EC-0A26-F5C0-D8EE0FB4EB8D"/>
+<colUsage columnID="27BB923F-0F35-1CFF-C6A6-1995B514E6EE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2F16587F-EB34-F833-35A5-B9D5501B5B6F" name="cust_order_cust_pc_FK">
+<createdBy>willi</createdBy>
+<createdTime>2023-11-01 13:30:52 UTC</createdTime>
+<generatorID>B08D7A5D-89F4-F07D-434D-CB443172F2E3</generatorID>
+<ownerDesignName>custPC3</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6268F1FD-C0EC-0A26-F5C0-D8EE0FB4EB8D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FF015EDA-0C18-42F4-25E1-AE4BD86D5DC3" name="cust_order_cust_buyer_FK">
+<createdBy>willi</createdBy>
+<createdTime>2023-11-01 13:30:52 UTC</createdTime>
+<generatorID>B08D7A5D-89F4-F07D-434D-CB443172F2E3</generatorID>
+<ownerDesignName>custPC3</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="27BB923F-0F35-1CFF-C6A6-1995B514E6EE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

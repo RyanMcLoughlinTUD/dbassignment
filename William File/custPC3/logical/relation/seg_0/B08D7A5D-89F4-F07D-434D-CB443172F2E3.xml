@@ -1,0 +1,45 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="cust_order" directorySegmentName="seg_0" id="B08D7A5D-89F4-F07D-434D-CB443172F2E3">
+<createdBy>willi</createdBy>
+<createdTime>2023-11-01 13:22:35 UTC</createdTime>
+<ownerDesignName>custPC3</ownerDesignName>
+<engineerTo>
+<item key="7D845474-497B-738E-C89E-81029AE77408" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>9D63BFED-AD1B-6000-7AD3-2E75FD02588A</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>05C66315-6597-2D7A-B8F4-D663D24CADA8</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<attribute name="order_date" id="36A44A4A-1B98-A276-050E-EE96DAEFEE6F">
+<createdBy>willi</createdBy>
+<createdTime>2023-11-01 13:23:43 UTC</createdTime>
+<ownerDesignName>custPC3</ownerDesignName>
+<engineerTo>
+<item key="7D845474-497B-738E-C89E-81029AE77408" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</attribute>
+<attribute name="order_email" id="BB680B86-44EA-8E67-C164-9B31FC328CE6">
+<createdBy>willi</createdBy>
+<createdTime>2023-11-01 13:23:52 UTC</createdTime>
+<ownerDesignName>custPC3</ownerDesignName>
+<engineerTo>
+<item key="7D845474-497B-738E-C89E-81029AE77408" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+</attribute>
+</attributes>
+</Relation>

@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="72C6574A-C882-917C-833E-498D91F94739" name="cust_specs">
+<createdBy>willi</createdBy>
+<createdTime>2023-11-01 13:30:52 UTC</createdTime>
+<ownerDesignName>custPC3</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="cust_pc_pc_id" id="4DC5A203-05BA-EBF0-2B9C-00686BC7B2CC">
+<createdBy>willi</createdBy>
+<createdTime>2023-11-01 13:30:52 UTC</createdTime>
+<ownerDesignName>custPC3</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2D3C249A-AECE-6EC1-05F6-29806BE7733F" referredColumn="1B067E02-E477-29C6-82ED-7501597CFF9E"/>
+</associations>
+</Column>
+<Column name="cust_components_part_id" id="D29C483A-6DD1-7E35-A6B1-4A2B559F8217">
+<createdBy>willi</createdBy>
+<createdTime>2023-11-01 13:30:52 UTC</createdTime>
+<ownerDesignName>custPC3</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4331921F-D0E0-08D2-B3C9-5E6B2647B757" referredColumn="7F1C62C9-D44F-5B0B-36C8-0A11CB6EF4A2"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5F7888D3-D5D1-4C80-3AFD-286AACD534BA" name="cust_specs_PK">
+<createdBy>willi</createdBy>
+<createdTime>2023-11-01 13:30:52 UTC</createdTime>
+<ownerDesignName>custPC3</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4DC5A203-05BA-EBF0-2B9C-00686BC7B2CC"/>
+<colUsage columnID="D29C483A-6DD1-7E35-A6B1-4A2B559F8217"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DDB8ED48-1A63-C2AA-E4B4-91452BAEA17F" name="cust_specs_cust_pc_FK">
+<createdBy>willi</createdBy>
+<createdTime>2023-11-01 13:30:52 UTC</createdTime>
+<generatorID>F8DC3B8E-993A-8763-203B-2E50A40E6720</generatorID>
+<ownerDesignName>custPC3</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4DC5A203-05BA-EBF0-2B9C-00686BC7B2CC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="65A60489-9B28-19B2-01A5-207A563A6018" name="cust_specs_cust_components_FK">
+<createdBy>willi</createdBy>
+<createdTime>2023-11-01 13:30:52 UTC</createdTime>
+<generatorID>F8DC3B8E-993A-8763-203B-2E50A40E6720</generatorID>
+<ownerDesignName>custPC3</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D29C483A-6DD1-7E35-A6B1-4A2B559F8217"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

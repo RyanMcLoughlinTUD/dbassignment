@@ -1,0 +1,70 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="74F719E3-794A-0489-D78C-05323B2EDC95" name="cust_components">
+<createdBy>willi</createdBy>
+<createdTime>2023-11-01 13:30:52 UTC</createdTime>
+<generatorID>55A62E9D-2E75-31EB-2163-9B5D243E33D6</generatorID>
+<ownerDesignName>custPC3</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="part_name" id="16C828B1-29B3-5E17-BAA8-8BAEE46A7110">
+<createdBy>willi</createdBy>
+<createdTime>2023-11-01 13:30:52 UTC</createdTime>
+<generatorID>B74FE94F-7D35-06F0-B1DD-0568456E1A79</generatorID>
+<ownerDesignName>custPC3</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="part_id" id="7F1C62C9-D44F-5B0B-36C8-0A11CB6EF4A2">
+<createdBy>willi</createdBy>
+<createdTime>2023-11-01 13:30:52 UTC</createdTime>
+<generatorID>6058A33B-AE0A-FB21-1C5B-BCCB3BD7C005</generatorID>
+<ownerDesignName>custPC3</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="part_manufacturer" id="E788220A-E02B-ACEC-0C19-A30F3DE657C2">
+<createdBy>willi</createdBy>
+<createdTime>2023-11-01 13:30:52 UTC</createdTime>
+<generatorID>1620598C-9E34-A2CC-F0BB-3B1845EA2BAB</generatorID>
+<ownerDesignName>custPC3</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="part_stock" id="1DB853C7-0BA3-DF5E-9DC4-23C7189C0AF4">
+<createdBy>willi</createdBy>
+<createdTime>2023-11-01 13:30:52 UTC</createdTime>
+<generatorID>6F714A00-D606-445B-B07D-71472785D578</generatorID>
+<ownerDesignName>custPC3</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="BD5C5F03-4911-40C7-F22A-22CBC2259F47" name="cust_components_PK">
+<createdBy>willi</createdBy>
+<createdTime>2023-11-01 13:30:52 UTC</createdTime>
+<generatorID>526B146B-D013-C9FC-7E88-9C97EDF7826A</generatorID>
+<ownerDesignName>custPC3</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7F1C62C9-D44F-5B0B-36C8-0A11CB6EF4A2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
