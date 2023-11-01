@@ -11,7 +11,8 @@ try:
     email = input("Enter account email: ")
     pcname = input("Enter name of pc: ")
 
-    cursor.execute("CALL addOrder(email,pcname)")
+    cursor.execute("set search_path to \"Cust857B\"")
+    cursor.callproc("addOrder", (email, pcname))
 
     connection.commit()
 
