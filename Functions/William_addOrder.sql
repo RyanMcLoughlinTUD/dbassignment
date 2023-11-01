@@ -25,6 +25,3 @@ begin
 end;
 $$
 
-
-select count(*) from cust_buyer where buyer_email = 'dd';
-
