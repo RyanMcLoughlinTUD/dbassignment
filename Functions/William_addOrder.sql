@@ -19,9 +19,11 @@ begin
 		raise exception 'The email % does not exist', buyer_email_f;
 	end if;
 	select pc_id into pc_id_f from cust_pc where pc_name_f = pc_name;
+	if not found then
+		raise exception 'The pc % does not exist', pc_name_f;
+	end if;
 
 	insert into cust_order (pc_id, buyer_id, order_date, order_email)
 	values (pc_id_f, buyer_id_f, now(), buyer_email_f);
 end;
 $$
-
