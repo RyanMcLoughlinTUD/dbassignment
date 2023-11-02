@@ -50,7 +50,7 @@ declare
 	v_pcname varchar(100);
 begin
 	select pcbuilt from pcmadelist 
-	order by
+	order by ctid desc
 	limit 1
 	into v_pcname;
 	insert into pcmadelog(PCmade, MadeDate, username) values(v_pcname, NOW(), current_user);
