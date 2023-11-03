@@ -312,7 +312,7 @@ insert into cust_supplycomponents values (35,4,'6-06-2124');
 insert into cust_supplycomponents values (36,1,'7-06-2993');
 
 --GRANTS FOR ROLES 
---Grant usages for Ryan and Will
+--Grant usages for Will, Ryan and Paul
 grant usage on schema "Cust857B" to "C21437002";
 grant usage on schema "Cust857B" to "C21431604";
 grant usage on schema "Cust857B" to "C21359216";
@@ -346,6 +346,7 @@ grant insert on table cust_components to "C21431604";
 grant update on table cust_components to "C21431604";
 GRANT USAGE ON SEQUENCE cust_components_part_id_seq TO "C21431604";
 --
+grant execute on function makePC to "C21431604"
 
 --Paul as supplier acquisition
 grant select on table cust_supplierdetails to "C21359216";
