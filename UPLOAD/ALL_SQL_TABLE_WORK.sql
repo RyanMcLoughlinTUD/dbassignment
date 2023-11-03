@@ -1,3 +1,59 @@
+--TABLE CREATION
+drop table cust_supplycomponents;
+drop table cust_specs;
+drop table cust_order;
+drop table cust_buyer;
+drop table cust_pc;
+drop table cust_components;
+drop table cust_supplierdetails;
+
+
+CREATE TABLE cust_buyer (
+    buyer_id      serial primary key,
+    buyer_name    VARCHAR(100) NOT NULL,
+    buyer_address VARCHAR(255) NOT NULL,
+    buyer_email   VARCHAR(100) unique NOT NULL,
+    buyer_phone   VARCHAR(20)
+);
+
+CREATE TABLE cust_components (
+    part_id           serial primary key,
+    part_name         VARCHAR(100) NOT NULL,
+    part_manufacturer VARCHAR(100)NOT NULL,
+    part_stock        INTEGER NOT NULL
+);
+CREATE TABLE cust_pc (
+    pc_id    serial primary key,
+    pc_name  VARCHAR(255) NOT NULL,
+    pc_price INTEGER NOT NULL
+);
+
+CREATE TABLE cust_supplierdetails (
+    supplier_id      serial primary key,
+    supplier_address VARCHAR(255) NOT NULL,
+    supplier_phone   VARCHAR(20) NOT NULL,
+    supplier_name    VARCHAR(100) unique NOT NULL
+);
+
+CREATE TABLE cust_order (
+    pc_id       INTEGER references cust_pc(pc_id),
+    buyer_id    INTEGER references cust_buyer(buyer_id),
+    order_date  DATE NOT NULL,
+    order_email VARCHAR(100) NOT NULL
+);  
+
+CREATE TABLE cust_specs (
+    pc_id   INTEGER references cust_pc(pc_id),
+    part_id INTEGER references cust_components(part_id)
+);   
+
+CREATE TABLE cust_supplycomponents (
+    part_id       integer references cust_components(part_id),
+    supplier_id   integer references cust_supplierDetails(supplier_id),
+    supplied_date DATE not NULL
+);
+
+--INSERTS FOR ALL TABLES
 --CUSTOMER INSERTS
 insert into cust_buyer (buyer_name, buyer_address, buyer_email)
 values ('William', 'Lissadell, Piedmont, Riverstown, Dundalk, Co.Louth', 'c21437002@mytudublin.ie');
@@ -23,7 +79,6 @@ VALUES
     ('Ultra-Portable', 900);
 
 --PARTS INSERTS
-   
 -- Insert CPUs
 INSERT INTO cust_components (part_name, part_manufacturer, part_stock)
 VALUES
@@ -93,7 +148,6 @@ VALUES
     ('Arctic P12 PWM', 'Arctic', 38);
 
 --MAKING PC'S THEMSELVES
-
 --gaming beast
 INSERT INTO cust_specs (pc_id, part_id) VALUES (1, 1);  -- CPU: Intel Core i7-12700K
 INSERT INTO cust_specs (pc_id, part_id) VALUES (1, 5);  -- GPU: NVIDIA GeForce RTX 3080
@@ -256,3 +310,56 @@ insert into cust_supplycomponents values (33,3,'6-02-2346');
 insert into cust_supplycomponents values (34,2,'2-02-5214');
 insert into cust_supplycomponents values (35,4,'6-06-2124');
 insert into cust_supplycomponents values (36,1,'7-06-2993');
+
+--GRANTS FOR ROLES 
+--Grant usages for Ryan and Will
+grant usage on schema "Cust857B" to "C21437002";
+grant usage on schema "Cust857B" to "C21431604";
+grant usage on schema "Cust857B" to "C21359216";
+
+
+--William as Customer
+grant select on table cust_buyer to "C21437002";
+grant insert on table cust_buyer to "C21437002";
+GRANT USAGE ON SEQUENCE cust_buyer_buyer_id_seq TO "C21437002";
+--
+grant select on table cust_order to "C21437002";
+grant insert on table cust_order to "C21437002";
+--
+grant select on table cust_pc to "C21437002";
+--
+GRANT EXECUTE ON FUNCTION addOrder TO "C21437002";
+
+
+--Ryan as PC technician
+grant select on table cust_pc to "C21431604";
+grant insert on table cust_pc to "C21431604";
+grant update on table cust_pc to "C21431604";
+GRANT USAGE ON SEQUENCE cust_pc_pc_id_seq TO "C21431604";
+--
+grant select on table cust_specs to "C21431604";
+grant insert on table cust_specs to "C21431604";
+grant update on table cust_specs to "C21431604";
+--
+grant select on table cust_components to "C21431604";
+grant insert on table cust_components to "C21431604";
+grant update on table cust_components to "C21431604";
+GRANT USAGE ON SEQUENCE cust_components_part_id_seq TO "C21431604";
+--
+
+--Paul as supplier acquisition
+grant select on table cust_supplierdetails to "C21359216";
+grant insert on table cust_supplierdetails to "C21359216";
+grant usage on sequence cust_supplierdetails_supplier_id_seq to "C21359216";
+--
+grant select on table cust_supplycomponents to "C21359216";
+grant insert on table cust_supplycomponents to "C21359216";
+--
+grant select on table cust_components to "C21359216";
+grant insert on table cust_components to "C21359216";
+grant usage on sequence cust_components_part_id_seq to "C21359216";
+--
+GRANT EXECUTE ON FUNCTION addsupplierdetails TO "C21359216";
+grant update on table supplier_log to "C21359216";
+grant insert on table supplier_log to "C21359216";
+grant select on table supplier_log to "C21359216";
