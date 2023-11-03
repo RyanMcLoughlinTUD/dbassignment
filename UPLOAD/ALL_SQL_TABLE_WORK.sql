@@ -1,4 +1,3 @@
---TABLE CREATION
 drop table cust_supplycomponents;
 drop table cust_specs;
 drop table cust_order;
@@ -22,6 +21,7 @@ CREATE TABLE cust_components (
     part_manufacturer VARCHAR(100)NOT NULL,
     part_stock        INTEGER NOT NULL
 );
+
 CREATE TABLE cust_pc (
     pc_id    serial primary key,
     pc_name  VARCHAR(255) NOT NULL,
@@ -39,7 +39,8 @@ CREATE TABLE cust_order (
     pc_id       INTEGER references cust_pc(pc_id),
     buyer_id    INTEGER references cust_buyer(buyer_id),
     order_date  DATE NOT NULL,
-    order_email VARCHAR(100) NOT NULL
+    order_email VARCHAR(100) NOT null,
+    complete_status varchar(100) default 'In progress'
 );  
 
 CREATE TABLE cust_specs (
@@ -50,7 +51,8 @@ CREATE TABLE cust_specs (
 CREATE TABLE cust_supplycomponents (
     part_id       integer references cust_components(part_id),
     supplier_id   integer references cust_supplierDetails(supplier_id),
-    supplied_date DATE not NULL
+    supplied_date DATE not null,
+    isWorking 	  varchar(100) default 'True'
 );
 
 --INSERTS FOR ALL TABLES

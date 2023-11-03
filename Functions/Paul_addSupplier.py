@@ -20,10 +20,10 @@ try:
     cursor.callproc("addSupplierDetails", (name, address, phone))
 
     result = cursor.fetchone()
-    print("Function Result:", result)
+    print("Function result: ", result)
 
 except (Exception, psycopg2.DatabaseError) as error:
-    print("Error while connecting to PostgreSQL or calling the function:", error)
+    print("Error while connecting to PostgreSQL or calling the function: ", error)
 
 finally:
     if connection:
