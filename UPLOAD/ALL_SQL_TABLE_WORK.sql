@@ -21,7 +21,8 @@ CREATE TABLE cust_components (
     part_name         VARCHAR(100) NOT NULL,
     part_type		  VARCHAR(100) NOT NULL,
     part_manufacturer VARCHAR(100)NOT NULL,
-    part_stock        INTEGER NOT NULL
+    part_stock        INTEGER NOT NULL,
+    part_price 		  integer NOT null
 );
 
 CREATE TABLE cust_pc (
@@ -65,10 +66,15 @@ create table cust_customPC(
 	ShippingStatus varchar(100) default 'In progress'
 );
 
-select buyer_name, part_type, part_name from cust_buyer
+select buyer_name, part_type, part_name, part_price from cust_buyer
 join cust_customPC using(buyer_id)
 join cust_components using(part_id);
-select * from cust_custompc;
+
+select pc_name, pc_price, part_name, part_price, part_type, part_id from cust_pc
+join cust_specs using(pc_id)
+join cust_components using(part_id)
+where pc_name = 'Gaming Beast';
+
 select * from cust_components;
 
 --INSERTS FOR ALL TABLES
@@ -97,73 +103,74 @@ VALUES
     ('Ultra-Portable', 900);
 
 --PARTS INSERTS
--- Insert CPUs
-INSERT INTO cust_components (part_name, part_manufacturer, part_type, part_stock)
+-- Insert CPUs with prices
+INSERT INTO cust_components (part_name, part_manufacturer, part_type, part_stock, part_price)
 VALUES
-    ('Intel Core i7-12700K', 'Intel', 'CPU', 20),
-    ('AMD Ryzen 9 5900X', 'AMD', 'CPU', 18),
-    ('Intel Core i5-11600K', 'Intel', 'CPU', 15),
-    ('AMD Ryzen 5 5600X', 'AMD', 'CPU', 17);
+    ('Intel Core i7-12700K', 'Intel', 'CPU', 20, 350.00),
+    ('AMD Ryzen 9 5900X', 'AMD', 'CPU', 18, 400.00),
+    ('Intel Core i5-11600K', 'Intel', 'CPU', 15, 250.00),
+    ('AMD Ryzen 5 5600X', 'AMD', 'CPU', 17, 300.00);
 
--- Insert GPUs
-INSERT INTO cust_components (part_name, part_manufacturer, part_type, part_stock)
+-- Insert GPUs with prices
+INSERT INTO cust_components (part_name, part_manufacturer, part_type, part_stock, part_price)
 VALUES
-    ('NVIDIA GeForce RTX 3080', 'NVIDIA', 'GPU', 10),
-    ('AMD Radeon RX 6800 XT', 'AMD', 'GPU', 12),
-    ('NVIDIA GeForce RTX 3060', 'NVIDIA', 'GPU', 14),
-    ('AMD Radeon RX 6700 XT', 'AMD', 'GPU', 16);
+    ('NVIDIA GeForce RTX 3080', 'NVIDIA', 'GPU', 10, 800.00),
+    ('AMD Radeon RX 6800 XT', 'AMD', 'GPU', 12, 750.00),
+    ('NVIDIA GeForce RTX 3060', 'NVIDIA', 'GPU', 14, 400.00),
+    ('AMD Radeon RX 6700 XT', 'AMD', 'GPU', 16, 500.00);
 
--- Insert RAM modules
-INSERT INTO cust_components (part_name, part_manufacturer, part_type, part_stock)
+-- Insert RAM modules with prices
+INSERT INTO cust_components (part_name, part_manufacturer, part_type, part_stock, part_price)
 VALUES
-    ('Corsair Vengeance LPX 16GB DDR4', 'Corsair', 'RAM', 30),
-    ('Crucial Ballistix 32GB DDR4', 'Crucial', 'RAM', 25),
-    ('G.Skill Ripjaws V 8GB DDR4', 'G.Skill', 'RAM', 22),
-    ('Kingston HyperX 64GB DDR4', 'Kingston', 'RAM', 28);
+    ('Corsair Vengeance LPX 16GB DDR4', 'Corsair', 'RAM', 30, 80.00),
+    ('Crucial Ballistix 32GB DDR4', 'Crucial', 'RAM', 25, 120.00),
+    ('G.Skill Ripjaws V 8GB DDR4', 'G.Skill', 'RAM', 22, 60.00),
+    ('Kingston HyperX 64GB DDR4', 'Kingston', 'RAM', 28, 160.00);
 
--- Insert Storage drives
-INSERT INTO cust_components (part_name, part_manufacturer, part_type, part_stock)
+-- Insert Storage drives with prices
+INSERT INTO cust_components (part_name, part_manufacturer, part_type, part_stock, part_price)
 VALUES
-    ('Samsung 970 EVO 1TB NVMe SSD', 'Samsung', 'Storage', 40),
-    ('Western Digital WD Black 2TB HDD', 'WD', 'Storage', 35),
-    ('Crucial MX500 500GB SATA SSD', 'Crucial', 'Storage', 32),
-    ('Seagate Barracuda 4TB HDD', 'Seagate', 'Storage', 38);
+    ('Samsung 970 EVO 1TB NVMe SSD', 'Samsung', 'Storage', 40, 150.00),
+    ('Western Digital WD Black 2TB HDD', 'WD', 'Storage', 35, 80.00),
+    ('Crucial MX500 500GB SATA SSD', 'Crucial', 'Storage', 32, 70.00),
+    ('Seagate Barracuda 4TB HDD', 'Seagate', 'Storage', 38, 100.00);
 
--- Insert PSUs
-INSERT INTO cust_components (part_name, part_manufacturer, part_type, part_stock)
+-- Insert PSUs with prices
+INSERT INTO cust_components (part_name, part_manufacturer, part_type, part_stock, part_price)
 VALUES
-    ('EVGA 1000W 80+ Gold PSU', 'EVGA', 'PSU', 8),
-    ('Corsair RM1000x 1000W 80+ Gold PSU', 'Corsair', 'PSU', 10),
-    ('Seasonic Prime TX-1000 1000W 80+ Titanium PSU', 'Seasonic', 'PSU', 6),
-    ('Thermaltake Toughpower Grand RGB 1000W 80+ Platinum PSU', 'Thermaltake', 'PSU', 12),
-    ('EVGA 750W 80+ Gold PSU', 'EVGA', 'PSU', 20),
-    ('Corsair RM850x 850W 80+ Gold PSU', 'Corsair', 'PSU', 18),
-    ('Seasonic Focus GX-650 650W 80+ Gold PSU', 'Seasonic', 'PSU', 15),
-    ('Thermaltake Toughpower GF1 750W 80+ Gold PSU', 'Thermaltake', 'PSU', 17);
+    ('EVGA 1000W 80+ Gold PSU', 'EVGA', 'PSU', 8, 150.00),
+    ('Corsair RM1000x 1000W 80+ Gold PSU', 'Corsair', 'PSU', 10, 160.00),
+    ('Seasonic Prime TX-1000 1000W 80+ Titanium PSU', 'Seasonic', 'PSU', 6, 200.00),
+    ('Thermaltake Toughpower Grand RGB 1000W 80+ Platinum PSU', 'Thermaltake', 'PSU', 12, 180.00),
+    ('EVGA 750W 80+ Gold PSU', 'EVGA', 'PSU', 20, 90.00),
+    ('Corsair RM850x 850W 80+ Gold PSU', 'Corsair', 'PSU', 18, 120.00),
+    ('Seasonic Focus GX-650 650W 80+ Gold PSU', 'Seasonic', 'PSU', 15, 80.00),
+    ('Thermaltake Toughpower GF1 750W 80+ Gold PSU', 'Thermaltake', 'PSU', 17, 100.00);
 
--- Insert CPU Coolers
-INSERT INTO cust_components (part_name, part_manufacturer, part_type, part_stock)
+-- Insert CPU Coolers with prices
+INSERT INTO cust_components (part_name, part_manufacturer, part_type, part_stock, part_price)
 VALUES
-    ('Noctua NH-D15 CPU Cooler', 'Noctua', 'CPU Cooler', 10),
-    ('Cooler Master Hyper 212 RGB', 'Cooler Master', 'CPU Cooler', 12),
-    ('NZXT Kraken X63 280mm AIO Cooler', 'NZXT', 'CPU Cooler', 14),
-    ('Be Quiet! Dark Rock Pro 4', 'Be Quiet!', 'CPU Cooler', 16);
+    ('Noctua NH-D15 CPU Cooler', 'Noctua', 'CPU Cooler', 10, 90.00),
+    ('Cooler Master Hyper 212 RGB', 'Cooler Master', 'CPU Cooler', 12, 50.00),
+    ('NZXT Kraken X63 280mm AIO Cooler', 'NZXT', 'CPU Cooler', 14, 120.00),
+    ('Be Quiet! Dark Rock Pro 4', 'Be Quiet!', 'CPU Cooler', 16, 80.00);
 
--- Insert PC Cases
-INSERT INTO cust_components (part_name, part_manufacturer, part_type, part_stock)
+-- Insert PC Cases with prices
+INSERT INTO cust_components (part_name, part_manufacturer, part_type, part_stock, part_price)
 VALUES
-    ('Fractal Design Meshify C', 'Fractal Design', 'Case', 30),
-    ('NZXT H510i', 'NZXT', 'Case', 25),
-    ('Corsair 4000D Airflow', 'Corsair', 'Case', 22),
-    ('Lian Li Lancool II Mesh', 'Lian Li', 'Case', 28);
+    ('Fractal Design Meshify C', 'Fractal Design', 'Case', 30, 100.00),
+    ('NZXT H510i', 'NZXT', 'Case', 25, 120.00),
+    ('Corsair 4000D Airflow', 'Corsair', 'Case', 22, 80.00),
+    ('Lian Li Lancool II Mesh', 'Lian Li', 'Case', 28, 110.00);
 
--- Insert Case Fans
-INSERT INTO cust_components (part_name, part_manufacturer, part_type, part_stock)
+-- Insert Case Fans with prices
+INSERT INTO cust_components (part_name, part_manufacturer, part_type, part_stock, part_price)
 VALUES
-    ('Noctua NF-A12x25 PWM', 'Noctua', 'Fans', 40),
-    ('Corsair LL120 RGB', 'Corsair', 'Fans', 35),
-    ('Be Quiet! Silent Wings 3 140mm', 'Be Quiet!', 'Fans', 32),
-    ('Arctic P12 PWM', 'Arctic', 'Fans', 38);
+    ('Noctua NF-A12x25 PWM', 'Noctua', 'Fans', 40, 20.00),
+    ('Corsair LL120 RGB', 'Corsair', 'Fans', 35, 30.00),
+    ('Be Quiet! Silent Wings 3 140mm', 'Be Quiet!', 'Fans', 32, 25.00),
+    ('Arctic P12 PWM', 'Arctic', 'Fans', 38, 15.00);
+
 
 --MAKING PC'S THEMSELVES
 --gaming beast
@@ -172,39 +179,40 @@ INSERT INTO cust_specs (pc_id, part_id) VALUES (1, 5);  -- GPU: NVIDIA GeForce R
 INSERT INTO cust_specs (pc_id, part_id) VALUES (1, 9);  -- RAM: Corsair Vengeance LPX 16GB DDR4
 INSERT INTO cust_specs (pc_id, part_id) VALUES (1, 13); -- Storage: Samsung 970 EVO 1TB NVMe SSD
 INSERT INTO cust_specs (pc_id, part_id) VALUES (1, 17); -- PSU: EVGA 1000W 80+ Gold PSU
-INSERT INTO cust_specs (pc_id, part_id) VALUES (1, 21); -- Cooler: Noctua NH-D15 CPU Cooler
-INSERT INTO cust_specs (pc_id, part_id) VALUES (1, 25); -- Case: Fractal Design Meshify C
-INSERT INTO cust_specs (pc_id, part_id) VALUES (1, 29); -- Fans: Noctua NF-A12x25 PWM (x2)
+INSERT INTO cust_specs (pc_id, part_id) VALUES (1, 25); -- Cooler: Noctua NH-D15 CPU Cooler
+INSERT INTO cust_specs (pc_id, part_id) VALUES (1, 30); -- Case: Fractal Design Meshify C
+INSERT INTO cust_specs (pc_id, part_id) VALUES (1, 33); -- Fans: Noctua NF-A12x25 PWM (x2)
+
 
 --Productivity powerhouse
 INSERT INTO cust_specs (pc_id, part_id) VALUES (2, 2);  -- CPU: AMD Ryzen 9 5900X
 INSERT INTO cust_specs (pc_id, part_id) VALUES (2, 6);  -- GPU: AMD Radeon RX 6800 XT
 INSERT INTO cust_specs (pc_id, part_id) VALUES (2, 10); -- RAM: Crucial Ballistix 32GB DDR4
 INSERT INTO cust_specs (pc_id, part_id) VALUES (2, 14); -- Storage: Western Digital WD Black 2TB HDD
-INSERT INTO cust_specs (pc_id, part_id) VALUES (2, 17); -- PSU: Corsair RM1000x 1000W 80+ Gold PSU
-INSERT INTO cust_specs (pc_id, part_id) VALUES (2, 23); -- Cooler: NZXT Kraken X63 280mm AIO Cooler
-INSERT INTO cust_specs (pc_id, part_id) VALUES (2, 27); -- Case: NZXT H510i
-INSERT INTO cust_specs (pc_id, part_id) VALUES (2, 31); -- Fans: Corsair LL120 RGB (x2)
+INSERT INTO cust_specs (pc_id, part_id) VALUES (2, 18); -- PSU: Corsair RM1000x 1000W 80+ Gold PSU
+INSERT INTO cust_specs (pc_id, part_id) VALUES (2, 27); -- Cooler: NZXT Kraken X63 280mm AIO Cooler
+INSERT INTO cust_specs (pc_id, part_id) VALUES (2, 32); -- Case: Lian Li Lancool II Mesh
+INSERT INTO cust_specs (pc_id, part_id) VALUES (2, 34); -- Fans: Corsair LL120 RGB
 
 -- Compact Workstation
 INSERT INTO cust_specs (pc_id, part_id) VALUES (3, 3);  -- CPU: Intel Core i5-11600K
 INSERT INTO cust_specs (pc_id, part_id) VALUES (3, 7);  -- GPU: NVIDIA GeForce RTX 3060
 INSERT INTO cust_specs (pc_id, part_id) VALUES (3, 11); -- RAM: G.Skill Ripjaws V 8GB DDR4
 INSERT INTO cust_specs (pc_id, part_id) VALUES (3, 15); -- Storage: Crucial MX500 500GB SATA SSD
-INSERT INTO cust_specs (pc_id, part_id) VALUES (3, 18); -- PSU: Seasonic Prime TX-1000 1000W 80+ Titanium PSU
-INSERT INTO cust_specs (pc_id, part_id) VALUES (3, 24); -- Cooler: NZXT Kraken X63 280mm AIO Cooler
-INSERT INTO cust_specs (pc_id, part_id) VALUES (3, 28); -- Case: Corsair 4000D Airflow
-INSERT INTO cust_specs (pc_id, part_id) VALUES (3, 32); -- Fans: Be Quiet! Silent Wings 3 140mm (x2)
+INSERT INTO cust_specs (pc_id, part_id) VALUES (3, 19); -- PSU: Seasonic Prime TX-1000 1000W 80+ Titanium PSU
+INSERT INTO cust_specs (pc_id, part_id) VALUES (3, 25); -- Cooler: Noctua NH-D15 CPU Cooler
+INSERT INTO cust_specs (pc_id, part_id) VALUES (3, 30); -- case: NZXT H510i
+INSERT INTO cust_specs (pc_id, part_id) VALUES (3, 33); -- Fans: Noctua NF-A12x25 PWM
 
 --Entertainment Center
 INSERT INTO cust_specs (pc_id, part_id) VALUES (4, 4);  -- CPU: AMD Ryzen 5 5600X
 INSERT INTO cust_specs (pc_id, part_id) VALUES (4, 8);  -- GPU: AMD Radeon RX 6700 XT
 INSERT INTO cust_specs (pc_id, part_id) VALUES (4, 12); -- RAM: Kingston HyperX 64GB DDR4
 INSERT INTO cust_specs (pc_id, part_id) VALUES (4, 16); -- Storage: Seagate Barracuda 4TB HDD
-INSERT INTO cust_specs (pc_id, part_id) VALUES (4, 17); -- PSU: Corsair RM1000x 1000W 80+ Gold PSU
-INSERT INTO cust_specs (pc_id, part_id) VALUES (4, 22); -- Cooler: Be Quiet! Dark Rock Pro 4
-INSERT INTO cust_specs (pc_id, part_id) VALUES (4, 26); -- Case: Lian Li Lancool II Mesh
-INSERT INTO cust_specs (pc_id, part_id) VALUES (4, 30); -- Fans: Arctic P12 PWM (x2)
+INSERT INTO cust_specs (pc_id, part_id) VALUES (4, 20); -- PSU: Corsair RM1000x 1000W 80+ Gold PSU
+INSERT INTO cust_specs (pc_id, part_id) VALUES (4, 28); -- Cooler: Be Quiet! Dark Rock Pro 4
+INSERT INTO cust_specs (pc_id, part_id) VALUES (4, 31); -- Case: Corsair 4000D Airflow
+INSERT INTO cust_specs (pc_id, part_id) VALUES (4, 35); -- Fans: Be Quiet! Silent Wings 3 140mm
 
 --designer's dream
 INSERT INTO cust_specs (pc_id, part_id) VALUES (5, 3);  -- CPU: Intel Core i5-11600K
@@ -212,60 +220,69 @@ INSERT INTO cust_specs (pc_id, part_id) VALUES (5, 5);  -- GPU: NVIDIA GeForce R
 INSERT INTO cust_specs (pc_id, part_id) VALUES (5, 9);  -- RAM: Corsair Vengeance LPX 16GB DDR4
 INSERT INTO cust_specs (pc_id, part_id) VALUES (5, 15); -- Storage: Crucial MX500 500GB SATA SSD
 INSERT INTO cust_specs (pc_id, part_id) VALUES (5, 20); -- PSU: Thermaltake Toughpower Grand RGB 1000W 80+ Platinum PSU
-INSERT INTO cust_specs (pc_id, part_id) VALUES (5, 24); -- Cooler: NZXT Kraken X63 280mm AIO Cooler
-INSERT INTO cust_specs (pc_id, part_id) VALUES (5, 26); -- Case: Corsair 4000D Airflow
-INSERT INTO cust_specs (pc_id, part_id) VALUES (5, 30); -- Fans: Be Quiet! Silent Wings 3 140mm (x2)
+INSERT INTO cust_specs (pc_id, part_id) VALUES (5, 25); -- Cooler: Noctua NH-D15 CPU Cooler
+INSERT INTO cust_specs (pc_id, part_id) VALUES (5, 32); -- case: Lian Li Lancool II Mesh
+INSERT INTO cust_specs (pc_id, part_id) VALUES (5, 33); -- Fans: Noctua NF-A12x25 PWM
 
 --office pro
+select pc_name, pc_price, part_name, part_price, part_type, part_id from cust_pc
+join cust_specs using(pc_id)
+join cust_components using(part_id)
+where pc_name = 'Office Pro';
+
 INSERT INTO cust_specs (pc_id, part_id) VALUES (6, 3);  -- CPU: Intel Core i5-11600K
 INSERT INTO cust_specs (pc_id, part_id) VALUES (6, 7);  -- GPU: NVIDIA GeForce RTX 3060
 INSERT INTO cust_specs (pc_id, part_id) VALUES (6, 11); -- RAM: G.Skill Ripjaws V 8GB DDR4
 INSERT INTO cust_specs (pc_id, part_id) VALUES (6, 14); -- Storage: Crucial MX500 500GB SATA SSD
-INSERT INTO cust_specs (pc_id, part_id) VALUES (6, 20); -- PSU: Thermaltake Toughpower Grand RGB 1000W 80+ Platinum PSU
-INSERT INTO cust_specs (pc_id, part_id) VALUES (6, 24); -- Cooler: NZXT Kraken X63 280mm AIO Cooler
-INSERT INTO cust_specs (pc_id, part_id) VALUES (6, 27); -- Case: NZXT H510i
-INSERT INTO cust_specs (pc_id, part_id) VALUES (6, 31); -- Fans: Corsair LL120 RGB (x2)
+INSERT INTO cust_specs (pc_id, part_id) VALUES (6, 18); -- PSU: EVGA 750W 80+ Gold PSU
+INSERT INTO cust_specs (pc_id, part_id) VALUES (6, 28); -- Cooler: Be Quiet! Dark Rock Pro 4
+INSERT INTO cust_specs (pc_id, part_id) VALUES (6, 30); -- Case: NZXT H510i
+INSERT INTO cust_specs (pc_id, part_id) VALUES (6, 35); -- Fans: Be Quiet! Silent Wings 3 140mm
 
 --Multimedia Marvel
+select pc_name, pc_price, part_name, part_price, part_type, part_id from cust_pc
+join cust_specs using(pc_id)
+join cust_components using(part_id)
+where pc_name = 'Multimedia Marvel';
+
 INSERT INTO cust_specs (pc_id, part_id) VALUES (7, 1);  -- CPU: Intel Core i7-12700K
 INSERT INTO cust_specs (pc_id, part_id) VALUES (7, 6);  -- GPU: AMD Radeon RX 6800 XT
 INSERT INTO cust_specs (pc_id, part_id) VALUES (7, 9);  -- RAM: Corsair Vengeance LPX 16GB DDR4
 INSERT INTO cust_specs (pc_id, part_id) VALUES (7, 13); -- Storage: Samsung 970 EVO 1TB NVMe SSD
 INSERT INTO cust_specs (pc_id, part_id) VALUES (7, 20); -- PSU: Thermaltake Toughpower Grand RGB 1000W 80+ Platinum PSU
-INSERT INTO cust_specs (pc_id, part_id) VALUES (7, 24); -- Cooler: NZXT Kraken X63 280mm AIO Cooler
-INSERT INTO cust_specs (pc_id, part_id) VALUES (7, 27); -- Case: NZXT H510i
-INSERT INTO cust_specs (pc_id, part_id) VALUES (7, 31); -- Fans: Corsair LL120 RGB (x2)
+INSERT INTO cust_specs (pc_id, part_id) VALUES (7, 25); -- Cooler: Noctua NH-D15 CPU Cooler
+INSERT INTO cust_specs (pc_id, part_id) VALUES (7, 30); -- Case: Fractal Design Meshify C
+INSERT INTO cust_specs (pc_id, part_id) VALUES (7, 34); -- Fans: Corsair LL120 RGB
 
---Student specsial
+--Student special
 INSERT INTO cust_specs (pc_id, part_id) VALUES (8, 3);  -- CPU: Intel Core i5-11600K
 INSERT INTO cust_specs (pc_id, part_id) VALUES (8, 7);  -- GPU: NVIDIA GeForce RTX 3060
 INSERT INTO cust_specs (pc_id, part_id) VALUES (8, 11); -- RAM: G.Skill Ripjaws V 8GB DDR4
 INSERT INTO cust_specs (pc_id, part_id) VALUES (8, 14); -- Storage: Crucial MX500 500GB SATA SSD
 INSERT INTO cust_specs (pc_id, part_id) VALUES (8, 18); -- PSU: EVGA 750W 80+ Gold PSU
-INSERT INTO cust_specs (pc_id, part_id) VALUES (8, 22); -- Cooler: Cooler Master Hyper 212 RGB
-INSERT INTO cust_specs (pc_id, part_id) VALUES (8, 27); -- Case: NZXT H510i
-INSERT INTO cust_specs (pc_id, part_id) VALUES (8, 31); -- Fans: Corsair LL120 RGB (x2)
+INSERT INTO cust_specs (pc_id, part_id) VALUES (8, 26); -- Cooler: Cooler Master Hyper 212 RGB
+INSERT INTO cust_specs (pc_id, part_id) VALUES (8, 32); -- Case: Lian Li Lancool II Mesh
+INSERT INTO cust_specs (pc_id, part_id) VALUES (8, 36); -- Fans: Arctic P12 PWM
 
 --Home Theatre Hub
 INSERT INTO cust_specs (pc_id, part_id) VALUES (9, 2);  -- CPU: AMD Ryzen 9 5900X
 INSERT INTO cust_specs (pc_id, part_id) VALUES (9, 6);  -- GPU: AMD Radeon RX 6800 XT
 INSERT INTO cust_specs (pc_id, part_id) VALUES (9, 10); -- RAM: Crucial Ballistix 32GB DDR4
 INSERT INTO cust_specs (pc_id, part_id) VALUES (9, 14); -- Storage: Western Digital WD Black 2TB HDD
-INSERT INTO cust_specs (pc_id, part_id) VALUES (9, 20); -- PSU: Corsair RM1000x 1000W 80+ Gold PSU
-INSERT INTO cust_specs (pc_id, part_id) VALUES (9, 24); -- Cooler: NZXT Kraken X63 280mm AIO Cooler
-INSERT INTO cust_specs (pc_id, part_id) VALUES (9, 27); -- Case: NZXT H510i
-INSERT INTO cust_specs (pc_id, part_id) VALUES (9, 31); -- Fans: Corsair LL120 RGB (x2)
+INSERT INTO cust_specs (pc_id, part_id) VALUES (9, 18); -- PSU: Corsair RM1000x 1000W 80+ Gold PSU
+INSERT INTO cust_specs (pc_id, part_id) VALUES (9, 27); -- Cooler: NZXT Kraken X63 280mm AIO Cooler
+INSERT INTO cust_specs (pc_id, part_id) VALUES (9, 30); -- case: NZXT H510i
+INSERT INTO cust_specs (pc_id, part_id) VALUES (9, 33); -- Fans: Noctua NF-A12x25 PWM
 
 --Ultra-Portable
 INSERT INTO cust_specs (pc_id, part_id) VALUES (10, 3);  -- CPU: Intel Core i5-11600K
 INSERT INTO cust_specs (pc_id, part_id) VALUES (10, 7);  -- GPU: NVIDIA GeForce RTX 3060
 INSERT INTO cust_specs (pc_id, part_id) VALUES (10, 11); -- RAM: G.Skill Ripjaws V 8GB DDR4
 INSERT INTO cust_specs (pc_id, part_id) VALUES (10, 14); -- Storage: Crucial MX500 500GB SATA SSD
-INSERT INTO cust_specs (pc_id, part_id) VALUES (10, 20); -- PSU: EVGA 750W 80+ Gold PSU
-INSERT INTO cust_specs (pc_id, part_id) VALUES (10, 22); -- Cooler: Cooler Master Hyper 212 RGB
-INSERT INTO cust_specs (pc_id, part_id) VALUES (10, 27); -- Case: NZXT H510i
-INSERT INTO cust_specs (pc_id, part_id) VALUES (10, 31); -- Fans: Corsair LL120 RGB (x2)
-
+INSERT INTO cust_specs (pc_id, part_id) VALUES (10, 18); -- PSU: EVGA 750W 80+ Gold PSU
+INSERT INTO cust_specs (pc_id, part_id) VALUES (10, 25); -- Cooler: Noctua NH-D15 CPU Cooler
+INSERT INTO cust_specs (pc_id, part_id) VALUES (10, 32); -- Case: Lian Li Lancool II Mesh
+INSERT INTO cust_specs (pc_id, part_id) VALUES (10, 35); -- Fans: Be Quiet! Silent Wings 3 140mm
 
 --CREATING CUSTOMER ORDERS
 insert into cust_order (pc_id, buyer_id, order_date, order_email)
@@ -330,13 +347,12 @@ insert into cust_supplycomponents values (35,4,'6-06-2124');
 insert into cust_supplycomponents values (36,1,'7-06-2993');
 
 --insert the custom component orders
-insert into cust_customPC values(1, 2, '10/10/23', 'C21437002@mytudublin.ie'); --CPU AMD Ryzen 9 5900X
-insert into cust_customPC values(1, 5, '10/10/23', 'C21437002@mytudublin.ie'); --GPU NVIDIA GeForce RTX 3080
-insert into cust_customPC values(1, 12, '10/10/23', 'C21437002@mytudublin.ie'); --RAM Kingston HyperX 64GB DDR4
-insert into cust_customPC values(1, 18, '10/10/23', 'C21437002@mytudublin.ie'); --PSU Corsair RM1000x 1000W 80+ Gold PSU
-insert into cust_customPC values(1, 29, '10/10/23', 'C21437002@mytudublin.ie'); --Case Fractal Design Meshify C
-insert into cust_customPC values(1, 35, '10/10/23', 'C21437002@mytudublin.ie'); --Fans Be Quiet! Silent Wings 3 140mm
-
+insert into cust_customPC values(1, 2, '10/10/23', 'C21437002@mytudublin.ie');
+insert into cust_customPC values(1, 5, '10/10/23', 'C21437002@mytudublin.ie');
+insert into cust_customPC values(1, 12, '10/10/23', 'C21437002@mytudublin.ie');
+insert into cust_customPC values(1, 18, '10/10/23', 'C21437002@mytudublin.ie');
+insert into cust_customPC values(1, 29, '10/10/23', 'C21437002@mytudublin.ie');
+insert into cust_customPC values(1, 35, '10/10/23', 'C21437002@mytudublin.ie');
 
 --GRANTS FOR ROLES 
 --Grant usages for Will, Ryan and Paul
