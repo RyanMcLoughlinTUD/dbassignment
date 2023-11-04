@@ -1,6 +1,7 @@
 drop table cust_supplycomponents;
 drop table cust_specs;
 drop table cust_order;
+drop table cust_customPC;
 drop table cust_buyer;
 drop table cust_pc;
 drop table cust_components;
@@ -18,6 +19,7 @@ CREATE TABLE cust_buyer (
 CREATE TABLE cust_components (
     part_id           serial primary key,
     part_name         VARCHAR(100) NOT NULL,
+    part_type		  VARCHAR(100) NOT NULL,
     part_manufacturer VARCHAR(100)NOT NULL,
     part_stock        INTEGER NOT NULL
 );
@@ -55,6 +57,20 @@ CREATE TABLE cust_supplycomponents (
     isWorking 	  varchar(100) default 'True'
 );
 
+create table cust_customPC(
+	buyer_id      INTEGER references cust_buyer(buyer_id),
+	part_id 	  INTEGER references cust_components(part_id),
+	order_date    date not null,
+	order_email   varchar(100) not null,
+	ShippingStatus varchar(100) default 'In progress'
+);
+
+select buyer_name, part_type, part_name from cust_buyer
+join cust_customPC using(buyer_id)
+join cust_components using(part_id);
+select * from cust_custompc;
+select * from cust_components;
+
 --INSERTS FOR ALL TABLES
 --CUSTOMER INSERTS
 insert into cust_buyer (buyer_name, buyer_address, buyer_email)
@@ -82,72 +98,72 @@ VALUES
 
 --PARTS INSERTS
 -- Insert CPUs
-INSERT INTO cust_components (part_name, part_manufacturer, part_stock)
+INSERT INTO cust_components (part_name, part_manufacturer, part_type, part_stock)
 VALUES
-    ('Intel Core i7-12700K', 'Intel', 20),
-    ('AMD Ryzen 9 5900X', 'AMD', 18),
-    ('Intel Core i5-11600K', 'Intel', 15),
-    ('AMD Ryzen 5 5600X', 'AMD', 17);
+    ('Intel Core i7-12700K', 'Intel', 'CPU', 20),
+    ('AMD Ryzen 9 5900X', 'AMD', 'CPU', 18),
+    ('Intel Core i5-11600K', 'Intel', 'CPU', 15),
+    ('AMD Ryzen 5 5600X', 'AMD', 'CPU', 17);
 
 -- Insert GPUs
-INSERT INTO cust_components (part_name, part_manufacturer, part_stock)
+INSERT INTO cust_components (part_name, part_manufacturer, part_type, part_stock)
 VALUES
-    ('NVIDIA GeForce RTX 3080', 'NVIDIA', 10),
-    ('AMD Radeon RX 6800 XT', 'AMD', 12),
-    ('NVIDIA GeForce RTX 3060', 'NVIDIA', 14),
-    ('AMD Radeon RX 6700 XT', 'AMD', 16);
+    ('NVIDIA GeForce RTX 3080', 'NVIDIA', 'GPU', 10),
+    ('AMD Radeon RX 6800 XT', 'AMD', 'GPU', 12),
+    ('NVIDIA GeForce RTX 3060', 'NVIDIA', 'GPU', 14),
+    ('AMD Radeon RX 6700 XT', 'AMD', 'GPU', 16);
 
 -- Insert RAM modules
-INSERT INTO cust_components (part_name, part_manufacturer, part_stock)
+INSERT INTO cust_components (part_name, part_manufacturer, part_type, part_stock)
 VALUES
-    ('Corsair Vengeance LPX 16GB DDR4', 'Corsair', 30),
-    ('Crucial Ballistix 32GB DDR4', 'Crucial', 25),
-    ('G.Skill Ripjaws V 8GB DDR4', 'G.Skill', 22),
-    ('Kingston HyperX 64GB DDR4', 'Kingston', 28);
+    ('Corsair Vengeance LPX 16GB DDR4', 'Corsair', 'RAM', 30),
+    ('Crucial Ballistix 32GB DDR4', 'Crucial', 'RAM', 25),
+    ('G.Skill Ripjaws V 8GB DDR4', 'G.Skill', 'RAM', 22),
+    ('Kingston HyperX 64GB DDR4', 'Kingston', 'RAM', 28);
 
 -- Insert Storage drives
-INSERT INTO cust_components (part_name, part_manufacturer, part_stock)
+INSERT INTO cust_components (part_name, part_manufacturer, part_type, part_stock)
 VALUES
-    ('Samsung 970 EVO 1TB NVMe SSD', 'Samsung', 40),
-    ('Western Digital WD Black 2TB HDD', 'WD', 35),
-    ('Crucial MX500 500GB SATA SSD', 'Crucial', 32),
-    ('Seagate Barracuda 4TB HDD', 'Seagate', 38);
+    ('Samsung 970 EVO 1TB NVMe SSD', 'Samsung', 'Storage', 40),
+    ('Western Digital WD Black 2TB HDD', 'WD', 'Storage', 35),
+    ('Crucial MX500 500GB SATA SSD', 'Crucial', 'Storage', 32),
+    ('Seagate Barracuda 4TB HDD', 'Seagate', 'Storage', 38);
 
 -- Insert PSUs
-INSERT INTO cust_components (part_name, part_manufacturer, part_stock)
+INSERT INTO cust_components (part_name, part_manufacturer, part_type, part_stock)
 VALUES
-    ('EVGA 1000W 80+ Gold PSU', 'EVGA', 8),
-    ('Corsair RM1000x 1000W 80+ Gold PSU', 'Corsair', 10),
-    ('Seasonic Prime TX-1000 1000W 80+ Titanium PSU', 'Seasonic', 6),
-    ('Thermaltake Toughpower Grand RGB 1000W 80+ Platinum PSU', 'Thermaltake', 12),
-    ('EVGA 750W 80+ Gold PSU', 'EVGA', 20),
-    ('Corsair RM850x 850W 80+ Gold PSU', 'Corsair', 18),
-    ('Seasonic Focus GX-650 650W 80+ Gold PSU', 'Seasonic', 15),
-    ('Thermaltake Toughpower GF1 750W 80+ Gold PSU', 'Thermaltake', 17);
+    ('EVGA 1000W 80+ Gold PSU', 'EVGA', 'PSU', 8),
+    ('Corsair RM1000x 1000W 80+ Gold PSU', 'Corsair', 'PSU', 10),
+    ('Seasonic Prime TX-1000 1000W 80+ Titanium PSU', 'Seasonic', 'PSU', 6),
+    ('Thermaltake Toughpower Grand RGB 1000W 80+ Platinum PSU', 'Thermaltake', 'PSU', 12),
+    ('EVGA 750W 80+ Gold PSU', 'EVGA', 'PSU', 20),
+    ('Corsair RM850x 850W 80+ Gold PSU', 'Corsair', 'PSU', 18),
+    ('Seasonic Focus GX-650 650W 80+ Gold PSU', 'Seasonic', 'PSU', 15),
+    ('Thermaltake Toughpower GF1 750W 80+ Gold PSU', 'Thermaltake', 'PSU', 17);
 
 -- Insert CPU Coolers
-INSERT INTO cust_components (part_name, part_manufacturer, part_stock)
+INSERT INTO cust_components (part_name, part_manufacturer, part_type, part_stock)
 VALUES
-    ('Noctua NH-D15 CPU Cooler', 'Noctua', 10),
-    ('Cooler Master Hyper 212 RGB', 'Cooler Master', 12),
-    ('NZXT Kraken X63 280mm AIO Cooler', 'NZXT', 14),
-    ('Be Quiet! Dark Rock Pro 4', 'Be Quiet!', 16);
+    ('Noctua NH-D15 CPU Cooler', 'Noctua', 'CPU Cooler', 10),
+    ('Cooler Master Hyper 212 RGB', 'Cooler Master', 'CPU Cooler', 12),
+    ('NZXT Kraken X63 280mm AIO Cooler', 'NZXT', 'CPU Cooler', 14),
+    ('Be Quiet! Dark Rock Pro 4', 'Be Quiet!', 'CPU Cooler', 16);
 
 -- Insert PC Cases
-INSERT INTO cust_components (part_name, part_manufacturer, part_stock)
+INSERT INTO cust_components (part_name, part_manufacturer, part_type, part_stock)
 VALUES
-    ('Fractal Design Meshify C', 'Fractal Design', 30),
-    ('NZXT H510i', 'NZXT', 25),
-    ('Corsair 4000D Airflow', 'Corsair', 22),
-    ('Lian Li Lancool II Mesh', 'Lian Li', 28);
+    ('Fractal Design Meshify C', 'Fractal Design', 'Case', 30),
+    ('NZXT H510i', 'NZXT', 'Case', 25),
+    ('Corsair 4000D Airflow', 'Corsair', 'Case', 22),
+    ('Lian Li Lancool II Mesh', 'Lian Li', 'Case', 28);
 
 -- Insert Case Fans
-INSERT INTO cust_components (part_name, part_manufacturer, part_stock)
+INSERT INTO cust_components (part_name, part_manufacturer, part_type, part_stock)
 VALUES
-    ('Noctua NF-A12x25 PWM', 'Noctua', 40),
-    ('Corsair LL120 RGB', 'Corsair', 35),
-    ('Be Quiet! Silent Wings 3 140mm', 'Be Quiet!', 32),
-    ('Arctic P12 PWM', 'Arctic', 38);
+    ('Noctua NF-A12x25 PWM', 'Noctua', 'Fans', 40),
+    ('Corsair LL120 RGB', 'Corsair', 'Fans', 35),
+    ('Be Quiet! Silent Wings 3 140mm', 'Be Quiet!', 'Fans', 32),
+    ('Arctic P12 PWM', 'Arctic', 'Fans', 38);
 
 --MAKING PC'S THEMSELVES
 --gaming beast
@@ -313,55 +329,68 @@ insert into cust_supplycomponents values (34,2,'2-02-5214');
 insert into cust_supplycomponents values (35,4,'6-06-2124');
 insert into cust_supplycomponents values (36,1,'7-06-2993');
 
+--insert the custom component orders
+insert into cust_customPC values(1, 2, '10/10/23', 'C21437002@mytudublin.ie'); --CPU AMD Ryzen 9 5900X
+insert into cust_customPC values(1, 5, '10/10/23', 'C21437002@mytudublin.ie'); --GPU NVIDIA GeForce RTX 3080
+insert into cust_customPC values(1, 12, '10/10/23', 'C21437002@mytudublin.ie'); --RAM Kingston HyperX 64GB DDR4
+insert into cust_customPC values(1, 18, '10/10/23', 'C21437002@mytudublin.ie'); --PSU Corsair RM1000x 1000W 80+ Gold PSU
+insert into cust_customPC values(1, 29, '10/10/23', 'C21437002@mytudublin.ie'); --Case Fractal Design Meshify C
+insert into cust_customPC values(1, 35, '10/10/23', 'C21437002@mytudublin.ie'); --Fans Be Quiet! Silent Wings 3 140mm
+
+
 --GRANTS FOR ROLES 
 --Grant usages for Will, Ryan and Paul
 grant usage on schema "Cust857B" to "C21437002";
 grant usage on schema "Cust857B" to "C21431604";
 grant usage on schema "Cust857B" to "C21359216";
 
-
---William as Customer
+--William as Customer, can see and add customer to customer table
 grant select on table cust_buyer to "C21437002";
 grant insert on table cust_buyer to "C21437002";
 GRANT USAGE ON SEQUENCE cust_buyer_buyer_id_seq TO "C21437002";
---
+-- can see and insert a new order
 grant select on table cust_order to "C21437002";
 grant insert on table cust_order to "C21437002";
---
+-- can view prebuilts
 grant select on table cust_pc to "C21437002";
---
+-- can view components
+grant select on table cust_components to "C21437002"
+-- can insert and view order of specific components
+grant select on table cust_customPC to "C21437002" 
+grant insert on table cust_customPC to "C21437002" 
+-- can use the addOrder function
 GRANT EXECUTE ON FUNCTION addOrder TO "C21437002";
 
 
---Ryan as PC technician
+--Ryan as PC technician can view, edit and insert into the cust_pc table to make new prebuilts
 grant select on table cust_pc to "C21431604";
 grant insert on table cust_pc to "C21431604";
 grant update on table cust_pc to "C21431604";
 GRANT USAGE ON SEQUENCE cust_pc_pc_id_seq TO "C21431604";
---
+--  can see and choose what specs to go into each prebuilt
 grant select on table cust_specs to "C21431604";
 grant insert on table cust_specs to "C21431604";
 grant update on table cust_specs to "C21431604";
---
+-- can view and update components 
 grant select on table cust_components to "C21431604";
-grant insert on table cust_components to "C21431604";
 grant update on table cust_components to "C21431604";
 GRANT USAGE ON SEQUENCE cust_components_part_id_seq TO "C21431604";
---
+-- can build new prebuilts
 grant execute on function makePC to "C21431604"
 
 --Paul as supplier acquisition
+--can see all current suppliers and add to them
 grant select on table cust_supplierdetails to "C21359216";
 grant insert on table cust_supplierdetails to "C21359216";
 grant usage on sequence cust_supplierdetails_supplier_id_seq to "C21359216";
---
+-- can see what all suppliers supply to the business
 grant select on table cust_supplycomponents to "C21359216";
 grant insert on table cust_supplycomponents to "C21359216";
---
+-- can see all components and add if new components come in
 grant select on table cust_components to "C21359216";
 grant insert on table cust_components to "C21359216";
 grant usage on sequence cust_components_part_id_seq to "C21359216";
---
+-- can use the addsupplier function and have access to the trigger logging table
 GRANT EXECUTE ON FUNCTION addsupplierdetails TO "C21359216";
 grant update on table supplier_log to "C21359216";
 grant insert on table supplier_log to "C21359216";
