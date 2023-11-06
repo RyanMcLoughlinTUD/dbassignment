@@ -370,10 +370,10 @@ grant insert on table cust_order to "C21437002";
 -- can view prebuilts
 grant select on table cust_pc to "C21437002";
 -- can view components
-grant select on table cust_components to "C21437002"
+grant select on table cust_components to "C21437002";
 -- can insert and view order of specific components
-grant select on table cust_customPC to "C21437002" 
-grant insert on table cust_customPC to "C21437002" 
+grant select on table cust_customPC to "C21437002" ;
+grant insert on table cust_customPC to "C21437002" ;
 -- can use the addOrder function
 GRANT EXECUTE ON FUNCTION addOrder TO "C21437002";
 
@@ -392,7 +392,7 @@ grant select on table cust_components to "C21431604";
 grant update on table cust_components to "C21431604";
 GRANT USAGE ON SEQUENCE cust_components_part_id_seq TO "C21431604";
 -- can build new prebuilts
-grant execute on function makePC to "C21431604"
+grant execute on function makePC to "C21431604";
 
 --Paul as supplier acquisition
 --can see all current suppliers and add to them
