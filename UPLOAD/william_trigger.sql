@@ -3,7 +3,6 @@ drop table order_log;
 
 create TABLE order_log (
     log_id serial PRIMARY KEY,
-    function_name VARCHAR(100),
     function_triggered date,
 	users VARCHAR(100)
 );
