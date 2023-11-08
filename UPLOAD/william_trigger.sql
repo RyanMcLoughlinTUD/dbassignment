@@ -12,8 +12,8 @@ CREATE OR REPLACE FUNCTION logOrders() RETURNS TRIGGER AS $log_orders$
 declare 
 	function_name varchar(80);
 BEGIN
-    INSERT INTO order_log (function_name, function_triggered, users)
-    VALUES (function_name, now(), current_user);
+    INSERT INTO order_log (function_triggered, users)
+    VALUES (now(), current_user);
     RETURN NEW;
 END;
 $log_orders$ LANGUAGE plpgsql;
